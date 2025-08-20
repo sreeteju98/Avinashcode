@@ -1,0 +1,110 @@
+EC2 : 
+
+1. On-Demand Instances : Unpredictable workloads.. or shortterm testing purpuses..
+	--> No Commitment with AWS
+	--> Pay-as-you-go Model : Pay for the resources you actually uses
+	--> /sec billing (Minimum 60 sec)..
+
+2. Reserved Instances : suitable for "Predictable workloads" for lobger duration (1 Yr - 3 Yrs)
+
+	--> Standard RI : No config changes allowed.
+	--> Convertible : Confi changes can be modified (Instance family / OS)
+
+Payment Option:
+
+	--> Full Upfront : Pay 100% upfront.
+	--> Partial upfront : Pay 30-50% upfront, Remaining Monthly basis.. With "Redused hourly price".. 
+	--> No upfront : Pay entirely on monthly basis.. 
+
+--> We can sell instance in AWS marketplace, if we dont want to use it anymore.
+
+3. Spot Instances : For Flexible workloads with "NO Critical Data".
+	--> You bid your price against AWS pricing.
+	Usercase : Testing / temporary environments.
+	--> High config server, at low cost, with no affect for interruptions.. 
+
+--> if AWS Price exceeds your bidding price, ec2 instance will be terminates.. 
+
+--> Instance termination performed by AWS, Price changed.. You no need to pay for partial hours.. ( 1 hr 50 minutes --> AWS terminated --> 1 Hour)
+
+--> Instance termination performed by User, Price unchanged.. You no need to pay for full hours.. ( 1 hr 50 minutes --> you terminated --> 1 Hour 50 minutes)
+
+---
+
+Step 1 : provide a name (Tag)
+
+Tag --> Combination of key and value pair. We can provide metadata to our instance.
+
+Step 2 : Need to choose AMI (Amazon Machine Image)
+
+OS --> AMI
+
+Step 3 : Instance Type (CPU, Memory)
+
+Application : Demo-app
+
+General Purpose : Balanced Compute, memory, netowking.. : t2, t3, t4g, m4, m5
+CPU : CPU-Intensive Tasks : c4, c5
+Memory : RAM : memory Optimised : Database, distributed web sale im-memory : r4, r5, x1, z1
+Storage : Input and Output Operations per Second : nosql db, datawarehousing : d2, d3, i 
+GPU Optimised : Machinelearning, Ai, Gaming.. f1, p , g
+
+Step 4 : Create a keypair and use same.
+
+Helps to get default username and password.
+
+Step 5 : 
+
+OS contains some ports : 
+
+Windows : RDP (Remote Desktop protocol) : 3389 
+Linux/unix : SSH (Secure shell) : 22
+
+http : 80
+https : 443
+mysql : 3306
+mssql : 1433
+NFS : 2049
+
+Source Type : 
+1. Anywhere : 0.0.0.0/0 (Not recommended setting at enterprise level)
+2. My IP : Your currently connected network IP address.
+3. Custom : We can provide custom network IPs based on or/client requirement.
+
+
+Step 6 : Storage : 
+Windows 30 gb
+Linux : 8 / 10 gb
+
+
+Step 7 : Review and create
+
+-------
+
+
+How to connect:
+
+Windows OS : 
+1. Start --> search "Remote Desktop" --> open
+2. Open "run" (windows key + r) --> type "mstsc" --> RDP tool
+3. choose the instance "connect" --> RDP client --> Download remote desktop file --> open it
+
+MacOS : navigate to "app store", Install "Microsft remote desktop"
+
+---
+
+Public IP : Unique across the globe : Avinash Reddy Thipparthi
+Private IP : Unique with in the network : Chinna
+
+---
+
+
+
+
+
+
+
+
+
+
+

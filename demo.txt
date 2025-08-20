@@ -1,0 +1,444 @@
+AWS : 
+
+
+CSP : Cloud Service Provider : AWS, Azure, GCP.... 
+
+
+# Full Upfront : Pay all money and purchase the required infrastructure components (server, network, database, storage, applications, security applicances)
+
+ON-Demand : pay for the resources you actually using.. (1 server = 1 hour = you pay for 1 hour) (5 min - $)
+
+
+Pay-as-you-go : Pay for the resources you are actually using.
+
+
+Capital Upfront : Investing amount before starting the business : less/No upfront cost
+operational Maintenance : Cost involved for business operations : less operational cost
+
+
+--> Go global in minutes : 
+
+
+1 Region : 1a + 1b 
+2 Region : R53
+
+---
+
+2002 - Initial AWS launch
+
+2003 - Distributed computing
+
+2006 - Officially AWS launched : S3, EC2
+
+2012 - Mass Adaption
+
+Total Cost of Ownership (TCO) Calculator.. 
+
+AI / ML / Blackchain / robotic / satilite 
+
+---
+
+DevOps : 
+
+B2B : Business to business application : 
+
+icici --> banking
+infosys --> SW Services --> iMobile 
+
+
+Methodology : 
+
+SDLC : Software Development life Cycle
+
+Waterfall Model : Requirements --> Design --> Development --> Testing --> Deployment --> 
+
+10 Pages Website :  Page 1 --> Plan --> Design --> Develop --> test --> Deploy --> Review --> Go Live
+
+DevOps methodology : Quick releases, 
+
+---
+
+500 / 600 - 2000 - 3 Exams
+
+550 / 600 - 2020 - 10 + 3 = 13 Exams
+
+590 / 600 - 2024 - Daily test + Weekly test + monthly + 4 = 100+ Exams
+
+
+
+Latency : Time to get responses from the server.. 
+
+ping / traceroute / tracert : 
+
+
+---
+
+root User : he will have unrestricted access on this account. He can close the acocunt, he can change the support plan, free tier plan, he can modify/delete/create any resource/service in the account.
+
+1 Account --> 1 Email --> 1 Root user
+
+--
+
+IAM User : He will be part of same AWS account. We have to allocate a policy (Set of permissions)..
+
+Least Privilages Mechanism : Provide only required permisisons to perform his assigned job.. 
+
+IAM : Identity and Access Management : We can Create User/groups and Manage User Permisisons.. 
+S3 : Simple Storage Service : Google Drive of AWS.. 
+EC2 : Elastic Compute Cloud : We launch and run Servers..  
+VPC : Virtual private Cloud : Networking part in AWS..
+RDS : Relational Database Service : Database part in AWS..
+
+--
+
+Server : computer : 
+
+Server Down :
+JNTU : Results out : Server Down 
+EPFO : Server Down
+IRCTC : Server Down
+BMS : BB2 / Cooli : Server Down --> UserName and Password --> Previous booking, Download ticket.. 
+
+
+---
+
+CEO : 
+
+Accounting : 
+Marketing :
+Developer : 
+House Keeping : 
+
+---
+
+Account Name : 
+
+SDLC : Software Developement Life Cycle : 
+
+POC (Proof of Concept) --> Dev (Basic Application Development) --> QA (testing) --> UAT (pre-prod) --> Prod
+
+Gully --> Club --> District --> State (Rangi) --> Zones --> India A/B --> India
+
+
+--
+
+AWS Global Infrastructure : 
+
+Region : No technical definition, No Physical boundary..  Every Region will have multiple AZs.. : 
+37 Geographic Regions
+
+Availability Zone / AZ : Data Center or combination of multiple DCs.. : 117 Availability Zones : 
+
+Edge Location : CDN (Content Delivery Network) : 700+ CloudFront POPs (point of Presence).. 
+
+
+---
+
+
+Username, password --> "App/Physical/u2f" --> Login
+
+
+--> IAM user : 
+
+
+S3 : AWS version of Google Drive
+
+
+S3Admin : S3 Full Access : Login and verify his access on S3 service and other services (ec2/rds)
+EC2Admin : EC2 Full Access : Login and verify his access on EC2 service and other services (s3/rds)
+
+
+--
+
+Sign-In : https://982424467695.signin.aws.amazon.com/console
+Accountid : 982424467695
+Alias : avizway7
+
+https://982424467695.signin.aws.amazon.com/console
+https://avizway7.signin.aws.amazon.com/console
+
+---
+
+We can enforce "Strong Password policy" for all IAM users, At account level. 
+
+---
+
+User : 
+
+IAM user will have 2 types of accesses:
+
+1. Management console access : (Browser) :  Username, Password and Sig-in.
+2. Command line interface access : (AWS CLI Install, CMD) : AccesskeyID and SecretAccessKey
+
+--
+
+Policy : Set of preconfigured permissions. Policy is nothing but a json document, that contians set of permisisons on our AWS environment.
+
+--> AWS managed  : AWS provided, Based on Services we get this.
+--> AWS Managed - job function : AWS provided, Based on Standard job roles in market, we get this.
+--> Customer managed : Customer Created, Based on customer requirement, he can create/edit/delete these.
+
+---
+
+S3Admin : 
+
+https://avizway7.signin.aws.amazon.com/console
+s3admin
+
+---
+
+Administrator User : 
+
+IAM User : Administrator Access : I will use this user throughout the course.
+
+---
+root = IAM with Administrator (He dont get any account management permisisons)
+
+emp-id
+athipparthi
+email
+
+https://avizacademy.com/payment.html
+
+
+-------
+
+D: 14/08/2025
+
+User has to create a request, That req allocated to a user within the team. 
+
+BAU : Business as usaual : 
+
+Forgot Password / Disable User / Delete User..
+--
+
+--> AWS managed  : AWS provided, Based on Services we get this.
+--> AWS Managed - job function : AWS provided, Based on Standard job roles in market, we get this.
+--> Customer managed : Customer Created, Based on customer requirement, he can create/edit/delete these.
+
+
+AWS managed : Limited to specific Service
+AWS managed - Job Function : AWS prepared this policy based on the standard job and the job roles we have in current market.
+
+
+Authentication : Username and password --> loging
+Authorisation : What permisisons you have on the account. 
+
+S3Admin : S3 Full Access : Login (Success) --> S3 Allowed to access --> RDS (Not authorised)
+EC2Admin : EC2 Full Access : Login and verify his access on EC2 service and other services (s3/rds)
+
+
+Imlicit Allow : if you add a policy to a user, he can access only those resources. All other resource access wont provide to this use.
+
+Explicit Deny :  you allow 100 times, deny only 1 time, Deny will take effect. THis called as explicit deny.
+
+
+Limitations : An IAM user can have only 20 managed policies directly.
+
+Customer managed Policy : Customer creates based on his requirement. 
+
+
+Service : AWS service that the policy targets. (S3 / ec2 / rds ..)
+Effect : The result of the policy, Which can be "Allow" or "Deny"
+Actions : The operations permitted or denied (Putobject (upload), getobject (readobject), DeleteObject) / *
+Resources : The specific resources the policy applies to. (s3 bucket / ec2 instance / rds database)
+
+
+* --> asterisk / Everything / every operation / anything
+
+---
+
+Scenario : Need an IAM user, he should able to access all the services in this AWS account, 
+But He shouldn't able to access S3 as it contains some sensitive data. 
+
+UN : test-user
+Policy : AdministartorAccess
+
+---
+
+Scenario : need an IAM user, who can access any bucket in this account. But he should not able to "Upload" object to one specific bucket (sdfughdsufgdsuyf)
+
+
+---
+
+"inline Policy" : Directly embedded into a single user, group or role.
+
+--> Whenever any user reached maximum number of managed policies.
+--> A single policy can contains maximum of 6,144 characters only.
+
+--> Not reusable : We cannot reuse these polocies with other resources. 
+--> Hard to track : These are embedded into a single entity/resource. Hard to track. 
+
+---
+
+https://avizacademy.com/payment.html
+
+---
+
+
+15 min : interview Questions : 
+
+1 hr - 1:15 Min :
+
+15 Min : Q & A 
+
+---
+
+1. Developer : S3 --> upload --> ??? : S3Admin & S3Admin (S3 full access).. 
+IAM Policy : S3FullAccess (Condition)
+--> Resource level restrictions.. 
+--> verify "permissions Boundary"
+
+
+2. How many AWS accounts you are using and why.??
+Ans : Environment : SDLC (Sandbox/Training, Dev, QA, UAT, UPT, PROD, COB/DR)
+
+3. In your aws account, what support plan you guys are using.?
+
+---
+
+least privilages mechanism : Developer (S3, RDS) --> Deleted User
+
+
+Dev : FullAccess
+
+Dev : Dev
+Dev : QA ..??
+Dev : Prod..??
+
+---
+
+How you can track an IAM user activity.?
+
+--> Cloudtrail : by Defaultly enabled in all aws accounts.
+--> It can store only last 90 days activities.
+--> You cannot alter/modify/delete these logs.
+--> Everything you do (Including refresh) stores in this cloudtrail.
+
+
+You need to create a trail to store logs for unlimited days. 
+--> All logs will be stored in S3 bucket.
+
+---
+
+Credentials Report : This report helps us to identify password, last logged in info.
+
+---
+
+Permissions Boundary : Use to set maximum permissions for an IAM user. 
+
+---
+
+IAM Policy Simulator : The simulator evaluates the policies that you choose and determines the effective permissions for each of the actions that you specify.
+
+---
+
+IAM Access Analyzer : We can identify the resources shared from our account to another AWS account or Public.
+
+External access : Free 
+Internal access : £9/AWS resource/month
+Unused access : $0.2 / IAM user and role / month
+
+---
+
+IAM --> CLI COnfiguration : 
+
+First "Download the AWS CLI" and install it in your laptop. 
+
+https://aws.amazon.com/cli
+
+
+----
+
+Windows : Install "VS Code", then install "Amazon Q" extension.
+
+https://learn.microsoft.com/en-us/windows/wsl/setup/environment
+https://dev.to/aws/the-essential-guide-to-installing-amazon-q-developer-cli-on-windows-lmh
+
+---
+
+BAU : 
+
+KT : 
+
+---
+
+Who deleted an S3 Bucket.!! 
+
+--> Cloudtrail Service : 
+--> Lookup "DeleteBucket" Event.. Include Time range also.. 
+--> I will inspect who all have Write permisisons on S3.. Cloudtrail "username".. 
+
+---
+
+Task : Enforce MFA (multi Factor Authentication) for all IAM users. 
+User should not able to perform without MFA. (S3 Full Access : S3 bucket .. MFA --> Disable (should not work))
+
+---
+
+IAM user, he is not able to access XYZ service, How you will troubleshoot.??
+
+--> IAM Policy attached to User
+--> IAM Policy Condition
+--> Permissions Boundary
+--> Inline Policy
+--> Policy Similator
+
+---
+
+
+
+
+EC2 : Elastic Compute Cloud : 
+
+Server is nothing but a computer, that runs always.. It serves the clients requests.. 
+
+Windows Server 2012 r2, 16, 19, 2025, RHEL, Ubuntu, AL2023
+
+
+Web Hosting : Website/ application you can run here and share with the world.
+DB hosting : 
+File Sharing :
+Gaming : 
+
+EC2 --> Gives us the resources to run our servers.. 
+
+
+Server --> Server / Box
+AWS --> Instances
+Azure --> Azure VM
+Vm --> Virtual Machine
+
+
+
+CPU
+Memory
+HDD/SSD
+Network Interfaces 
+
+
+
+OS Types :
+Client OS :  windows 7, windows 10, ubuntu desktop	--> AWS Workspaces
+Server OS : RHEl, Windows server 2016, 2019, 2022, 2025.. --> AWS EC2
+
+---
+
+Scale UP : 
+Scale Down :
+
+
+---
+
+Public Cloud : Open for everyone. Anyone can create an account and use it.. : AWS, Azure, GCP... 
+
+Private Cloud : Dedicated for only one organisation.. 
+
+Hybrid Cloud : combination of multiple cloud platform (pub + pub) / (pub + private) / (onprem + pub)
+
+--> AWS Direct Connect
+--> Site-to-site VPN 
+
+Community Cloud : Group of organisation build DCs, That group of org uses it.. 
+
+---
