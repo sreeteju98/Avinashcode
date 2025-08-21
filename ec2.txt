@@ -81,7 +81,6 @@ Step 7 : Review and create
 
 -------
 
-
 How to connect:
 
 Windows OS : 
@@ -97,6 +96,65 @@ Public IP : Unique across the globe : Avinash Reddy Thipparthi
 Private IP : Unique with in the network : Chinna
 
 ---
+
+telnet --> What is this and how this works.?? How to use thios with ec2 instance for testing purpuses.
+
+---
+
+
+Linux : Open-Source System.. 
+
+Sep, 1991 --> Linus Tarvalds
+
+Open Source : Free to use, Modify and distribute.
+Security : 
+Stable : 
+Cost-Effective : 
+Performance : 
+
+
+Linux Distribution:
+
+General : Ubuntu, Fedora, Linux mint
+Enterprise Level Server : RHEl (Redhat enterprise linux), SUSE Linux Enterprise Server / SLES, Oracle Linux
+Community Server : CentOS, AlmaLinux
+Pen Testing: kali linux, parrot OS
+Light Weight : Puppy Linux
+
+--
+
+How to launch and Connect to Linux EC2 Instance.
+
+--> AL2023 
+
+EOS : End of Support --> We can still use it, (No updates, no support, no bug fixes)
+EOL : End of Life --> We canot use after the give date. 
+
+
+Default USer name : ec2-user
+
+
+ssh -i awar-05-fa.pem username@server-ip
+
+ssh -i awar-05-fa.pem ec2-user@13.203.66.42
+
+==> Permisisons are too open.. 
+
+--
+
+
+Linux Directory Structure : 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
