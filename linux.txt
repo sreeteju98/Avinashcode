@@ -1,0 +1,74 @@
+
+In Linux OS, Everything starts from /
+
+pwd 		--> print working directory
+cd			--> Change Direcory
+cd ..		--> One step back in the path
+ls			--> List everything in present directory
+
+bin  boot  dev  etc  home  lib  lib64  local  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+
+
+/ (Root Directory) : Top level directory, The parent of all other directories in Linux OS. (c:\)
+
+/root : (Root users home directory) : Root users private nworkspace. (c:\users\Administrator)
+
+/home : User's home directory : Home direcotry of all non-root users. If you create a user, you will get a directory for him automatically.
+
+/bin (Binary Executables) : Contains essential binary files used by all users. (eg: ls, mv, cp...).. We use these in basic system operations.. 
+
+/boot (Boot Loader Files) : Contains Linux Kernel and boot configuration and supported files. 
+
+/dev (Device Files) : Contains files that represents harware devices i.e; hard disks (Similar to windows Device manager).. 
+
+/etc (Configuration Files) : Sores system level configuration files.. User password, os info, dns info.. 
+
+/var (Variable Files) : Contains data that changes frequently (Db, logs, web content)
+
+
+---
+
+
+/usr (User Programs) : Contains user level programs and libraries.. 
+
+/sbin (System Binaries) : Contains system admin comamnds (ifconfig, iptables, firewall).. Only root and superusers can use these commands.
+
+/mnt (Mount points) : Temporaty mount points for system. 
+
+/media (Removable MEdia) : us, cd.. 
+
+/proc (Process information) : Process inforamtion
+
+/lib and /lib64 (Library files) : Contains shared libraries, that can be used by multiple programs. (similar to windows .dll)
+
+/opt (Optional Software) : Contains optional 3rd part softwares and add-ons.
+
+
+---
+
+
+whoami			--> tells you as what user you are working now
+hostname		--> Displays the instance/system name
+
+ls				--> List files and directory
+	ls -a		--> List all files including hidden directories
+
+touch			--> touch filename
+
+mkdir			--> Command to create a directory
+
+cd				--> Change directory
+
+cd /home/ec2-user/songs			--> We can navigate to absolute path
+
+Press "TAB" button "Twice" to see avaibale pdirectory when youa re navingting using "cd" command.
+
+
+
+
+
+
+
+
+
+

@@ -140,6 +140,8 @@ ssh -i awar-05-fa.pem ec2-user@13.203.66.42
 
 ==> Permisisons are too open.. 
 
+chmod 400 awar-05-fa.pem
+
 --
 
 
