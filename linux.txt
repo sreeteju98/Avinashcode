@@ -64,6 +64,93 @@ cd /home/ec2-user/songs			--> We can navigate to absolute path
 Press "TAB" button "Twice" to see avaibale pdirectory when youa re navingting using "cd" command.
 
 
+---
+
+sudo 			--> superuser do
+sudo su			--> helps to switch root user
+
+
+hostnamectl		--> Provide complete info about hostname and system arch, kernel info.
+hostnamectl set-hostname avinash-ec2		--> Rename
+
+uptime
+uptime -p		--> Prints system uptime information
+
+
+man hostname
+
+history
+
+cp				--> For copy operarion (copy & paste)
+mv				--> For Move operation (cut & paste)
+
+cp <source> <target>
+
+cp song1.mp3 song2.mp3 songs/
+
+cp s* test/									--> Copy all the files, that names starts with "s"
+
+mv video1.mp4 video2.mp4 video3.mp4 videos/			--> Cut and paste
+
+touch song{1..10}.txt
+
+touch song1.mp3
+touch song2.mp3
+touch song3.mp3
+touch song4.mp3
+
+---
+
+mv : We can also use for rename purposes. 
+
+mv <wrong-name> <valid-name>
+mv aa.txt avinash.txt
+
+---
+
+rmdir		--> helps to delete only empty directory
+
+rm -rf
+
+---
+
+cat			--> Displays the entire content. (short files)
+
+more		--> Displays file contents pay by page. (long files)
+
+---
+
+cp /etc/passwd /home/ec2-user/
+cd /home/ec2-user/
+
+  171  head passwd 
+  172  tail passwd 
+  173  cat passwd 
+  174  head -n 2 passwd 
+  175  head -n 3 passwd 
+  176  tail -n 3 passwd 
+  177  cat passwd 
+  178  sort passwd 
+  179  sort -r passwd
+
+
+---
+
+grep : global regular expression print 
+
+grep "word" filename.txt		--> Search for given word in filename. (case sensitive)
+
+grep -i "word" filename.txt		--> Search for given word in filename. (case in-sensitive)
+
+grep "word" file1.txt file2.txt file3.txt	--> Search for given word in multiple files
+
+grep -r "word" /path-to-directory		--> search in multiple files inside a directory
+
+
+
+
+
+
 
 
 
