@@ -146,16 +146,122 @@ grep "word" file1.txt file2.txt file3.txt	--> Search for given word in multiple 
 
 grep -r "word" /path-to-directory		--> search in multiple files inside a directory
 
+---
+
+vi		--> Original text editor
+vim 	--> Text editor, Improved version of VI
+
+vim new.txt					--> It creates a new file named "new.txt" and allow us to work on it.
+vim first.txt				--> Open the first.txt file and allow us to work on it.
+
+Command Mode : Navigation, deletion.. 
+Insert Mode : We can edit the content.. 
+
+---
+
+:wq			--> Write the changes and quit from the editor.
+:q!			--> Quit vim without saving changes.
+
+---
+When we are in "command mode"..
+
+k : cursor one line up
+j : cursor one line down
+o : Open a new line and enters the insert mode in that new line.
+x : Delete the character before the cursor
+
+db : Delete the entire word befor the cursor.
+dd : Delete the entire line where your cursor is placed.
+5dd : Delete the next 5 lines starting from the current line (Cursor line)
+10dd : Delete the next 10 lines starting from the current line (Cursor line)
+
+:set number	--> automatically sets the line numbers
+:set nonumber	--> Removes the line numbers
+
+nG : (n is line number) : Takes our cusror to specific line number.
+ex: 7G --> Takes our cursor to line num 7.
+
+u (small u) : undo the last change.
+cntrl + r : Redo the undone changes.
+
+---
+
+dnf install zip -y
+dnf install unzip -y
 
 
+zip files.zip file1.txt file2.txt file3.txt
+
+zip allfiles.zip *  --> Pics all files from current location and added to zip
+
+zip -r myfolder.zip myfolder/
+
+---
+
+unzip myzip.zip
+
+unzip -l test.zip 		--> Shows the files inside a zip without extracting.
+
+----
+How to deal with .tat.gz files
+
+tar -czvf files.tar.gz file1 file2 file3
+
+unzip a tar.gz : tar -xzvf songs.tar.gz			--> Will extract / unzip
+
+tar -ztvf songs.tar.gz 				--> Shows the files inside the zipped file
 
 
+----
+
+-czvf
 
 
+c --> create archive
+z --> compress
+v --> verbose
+f --> file name
 
 
+----
+
+echo "hi"
+
+echo "hello from avinash" >> aa.txt			--> it will append to the aa file, output added as new line
+echo "hello from avinash" > aa.txt			--> it will overwrite to the aa file, existing data will be overwritten.
+
+---
+
+RPM : Redha Package Manager : Manages installation, updates, removal of S/w. 
+
+rpm -ivh package.rpm
+
+--> Cant resolve dependencies automatically. Requires us to download and manages the dependencies manually.
+
+--
+
+YUM (Yellowdog updater Modified) : 
+--> Resolves dependencies automatically. Retrive p[ackages from local/global repos. 
+
+yum install httpd/nginx/mysql
+yum search httpd
+yum remove httpd/nginx/mysql
+
+--
+
+DNF (Dandified YUM) : Modern package mnager. Newer linux distributions are using this dnf.
+
+--> Faster dependencies resolution. Plugin based architecture. Secure. 
 
 
+dnf install httpd/nginx/mysql
+dnf search httpd
+dnf remove httpd/nginx/mysql
+dnf list installed
+
+---
+
+All Repos path : /etc/yum.repos.d/ 
 
 
 
