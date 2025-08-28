@@ -264,4 +264,107 @@ dnf list installed
 All Repos path : /etc/yum.repos.d/ 
 
 
+dnf update			
 
+dnf install <package-name>
+
+dnf search tree				--> Search for a package (Based on name and description)
+
+dnf list installed			--> View all installed packages
+
+
+dnf install httpd -y		--> Installs apache webpage
+
+systemctl status httpd		--> provide status of httpd service
+systemctl start httpd		--> starts httpd service
+systemctl restart httpd		--> restarts httpd service
+
+
+service httpd start/stop/restart	= systemctl start/stop/restart httpd
+chkconfig httpd on					= systemctl enable httpd
+
+
+systemctl enable httpd		--> Enables httpd service. Service will start automatically after stop/start / restart..
+
+
+Sanity Check / Validation : We verify the status of the service or status of the resources affected with the operation we performed.
+
+
+--> ctrl+r --> type "services.msc" --> Startup type.
+
+---
+
+Apache configuration path : /etc/httpd/conf/httpd.conf
+nginx config path : /etc/nginx/nginx.conf
+
+---
+
+DocumentRootPath 
+Apache : /var/www/html/
+nginx: /usr/share/nginx/html/
+
+---
+
+telnet.?? 
+
+telnet 3.110.48.184 80
+
+---
+
+PID : Process ID
+
+
+top : shows realtime view of running processes, system load, cpu and memory usage.. 
+ps : process snapshot : Shows the snapshot of current processes.
+
+sleep 120 &
+ps
+
+ps aux
+
+a - Shows process of all users
+u - user/owner of the process
+x - proceeses not attached to any terminal
+
+ps aux | grep sleep
+
+---
+
+We can get process id of the service
+
+pidof nginx				--> Search for nginx processes ids
+
+pkill nginx				--> Kill nginx processes
+
+pgrep httpd				--> Run Grep for httpd processes
+
+---
+
+dnf install htop -y
+
+htop : Interactive version of top command with color and better UI.
+
+---
+
+kill <pid>
+
+---
+
+SIGKILL --> 9
+
+kill -9 <pid>
+
+pstree		--> Shows the process tree
+pstree | less
+
+--
+
+free
+
+free -h
+free -g
+
+memory = ram
+
+
+---

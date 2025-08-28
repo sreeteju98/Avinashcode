@@ -97,7 +97,7 @@ Private IP : Unique with in the network : Chinna
 
 ---
 
-telnet --> What is this and how this works.?? How to use thios with ec2 instance for testing purpuses.
+telnet --> What is this and how this works.?? How to use this with ec2 instance for testing purpuses.!!
 
 ---
 
