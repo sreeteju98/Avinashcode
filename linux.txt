@@ -368,3 +368,88 @@ memory = ram
 
 
 ---
+
+useradd <username>			--> create a new user 
+adduser <username>			--> create a new user 
+id <username>				--> Displays the users id
+
+su <username>				--> Switch to the user, when you are working as root user.
+su <username>				--> Switch to the user along with password, when you are working as non-root user.
+
+usermod -aG wheel <username> -> Modify user group, add user to wheel group for sudo permissions.
+groups <username>			--> Lists the groups the user member of.
+
+whoami						-->
+
+su - <username>
+su <username>				--> you can switch to newly created user.
+
+groupadd <grp-name>			--> Created a group
+
+gpasswd	-a <username> <grobname> -> Remove user fro a group
+
+deluser	<username>			--> Delete the user.
+
+---
+
+To directly login as a user.. You need to edit the sshd configuration.. Enable "Password authentication to yes".
+
+sshd --> /etc/ssh/sshd_config
+
+PasswordAuthentication Yes			#Line no: 65
+
+Restart the sshd service.. 
+
+---
+
+Permissions Management: 
+
+
+Numeric / Octal Notation : 
+
+4 - r - Read 
+2 - w - write
+1 - x - execute
+
+We can set these permisisons at 3 levels:
+
+user - u
+group - g
+others - o
+
+777
+
+4+2+1 = 7 -> Read, Write and Execute
+4+2+0 = 6 -> Read and Write permisisons
+4+0+1 = 5 -> Read and Execute permisisons
+4+0+0 = 4 -> Read Only permisisons
+0+2+1 = 3 -> Write and Execute
+0+2+0 = 2 -> Only Wite access
+0+0+1 = 1 -> Only Execute permissions
+0+0+0 = 0 -> No access/permissions
+
+
+chomd 400 filename
+
+rw- r-- r--   1 root root     0 Aug 29 05:08 a.txt
+
+
+chown avinash a.txt				--> changing owner of a file
+
+chgrp developers a.txt			--> Changing group of a file
+
+chown -R avinash /data			--> Changing ownership of a directory
+
+ls -l
+ll
+
+stat 		--> Detailed view
+getfacl		--> View Access Control list of a directory or file
+
+stickybit permisisons : Anyone can create files, but only owner can delete.
+
+chmod 1777 team_temp
+
+cat /etc/group			--> List all the groups and members you have in the instance.
+
+
