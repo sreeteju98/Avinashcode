@@ -452,4 +452,81 @@ chmod 1777 team_temp
 
 cat /etc/group			--> List all the groups and members you have in the instance.
 
+---
+
+Cronjob : TIme based job/task scheduler.. 
+
+user specific : /var/spool/cron
+system wide : /etc/crontab
+
+crontab.guru
+
+Minutes hour day month day_of_week command
+
+
+--> Every minute, I want to write a msg to a file.. 
+
+sudo dnf install cronie cronie-anacron -y
+
+* * * * * sh /home/ec2-user/hello.sh
+
+---
+
+sudo -u avinash crontab -e
+
+@daily echo "$(date) - Uptime: $(uptime)"  >> home/avinash/uptime.log
+
+find /tmp -type f -atime +7 -delete
+
+------
+
+
+SCP (Secure Copy):
+
+
+scp [options] {source} {destination}
+
+scp myfile.txt ec2-user@192.168.100.1:/home/ec2-user/
+
+scp -r project-data/ ec2-user@192.168.100.1:/home/ec2-user/
+
+scp -i keypair.pem myfile.txt ec2-user@192.168.100.1:/home/ec2-user/
+
+---
+
+NIC : network interface Card..
+ENI : Elastic network interface.. 
+
+
+Linux : ip addr
+
+Linux : ifconfig
+
+windows: comnnad prompt --> ipconfig (or) ipconfig /all
+
+
+sudo dnf install httpd -y && sudo systemctl enable httpd --now
+
+ss -tulnp
+
+sudo lsof -i :80
+
+--
+
+sudo dnf install bind-utils
+
+nslookup google.com
+host google.com
+dig google.com
+
+---
+
+telnet {ip} {port}
+
+telnet alternative : openssl
+
+openssl s_client -connect <ip-address>:<port>
+
+
+
 
