@@ -528,5 +528,100 @@ telnet alternative : openssl
 openssl s_client -connect <ip-address>:<port>
 
 
+---
+
+
+EBS : Elastic Block Storage : Block Based Storage.. 
+
+IOPS : Input and output operations per second.
+
+Storage : 
+Block Size : Size of the data blocks being read/write. 4 kb / 8 KB.
+Latency : Time taken to process a single I/O operation
+Throughput : Mb/S
+
+IOPS Formula :
+
+IOPS = Throughput x 1024 / BlockSize
+400 x 1024 / 8 = 51200 IOPS
+
+root volume : Contqains Operating System.. : gp2, gp3, io1, io2, magnetic.. 
+
+SSD : Solid state drive : Latest and better performance.. : gp2, gp3, io1, io2..
+
+General purpose SSD : gp2, gp3.. Most common workloads.. We can get max of 16,000 IOPS only..
+gp2 : 3 IOPS per GB, with minimum of 100 IOPS.. 100 gb = 300 iops.. Min size : 1 GB.. Max 16 TB
+gp3 : Can adjust required IOPS count.. Min size : 1 GB.. Max 16 TB
+
+Provisioned IOPS SSD : io1, io2.. Best performance.. Workloads that requires specific IOPS or exceeding 16,000 IOPS.. Min size : 4 GB.. Max 16 TB
+
+
+HDD : Harddisk drive : older generation.. Less performance compared to SSD.. : sc1 and st1
+
+Throughpout Optimised HDD (st1): Suitable for big data, data warehousing, log processing.. Min size : 125 GB.. Max 16 TB
+Cold HDD (sc1) : Same as ST1, but less perf with less cost.. Min size : 125 GB.. Max 16 TB
+
+Magnetic (standard): low-cost storage solutions.. outdated.. Less frequently accessed..  Min size : 1 GB.. Max 1 TB..
+
+---
+
+lsblk : Lists all the block based storages attached to the istance..
+
+df -Th : Lists Storage devices detected and used by OS.. It displays Temp volumes as well.
+
+---
+
+
+nvme1n1
+
+path : /dev/nvme1n1		--> 1 gb volume
+
+mkdir newvol/
+
+
+mkfs -t xfs /dev/nvme1n1
+
+
+
+mount /dev/nvme1n1 newvol/
+
+when we did mount operation.. We have to add an entry in "/etc/fstab" file..
+
+After performing temporary mount, you get an entry in "/etc/mtab"" file. 
+Get the entry information from "/etc/mtab" and write same to "/etc/fstab"..
+
+/dev/nvme1n1 /home/ec2-user/newvol xfs rw,seclabel,relatime,attr2,inode64,logbufs=8,logbsize=32k,sunit=8,swidth=8,noquota 0 0
+
+volume should have file system.. 
+
+Windows : NTFS, FAT32, ReFs
+Linux : ext3, ext4, xfs..
+
+---
+
+Increase an Existing EBS volume size.. 
+
+1. Increase it in AWS console.. 
+
+xfs_growfs -d /home/ec2-user/newvol
+
+2. Then run "xfs_growfs" command to increase the size.
+
+In increase a specific partition.. use "growpart" command..
+
+growpart /dev/nvme0n1 1
+
+
+---
+
+mount -o remount,size=4G /tmp
+
+/etc/fstab write an entry for /tmp size
+
+tmpfs /tmp tmpfs defaults,size=4G 0 0 
+
+---
+
+
 
 
