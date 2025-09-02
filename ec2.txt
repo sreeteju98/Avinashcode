@@ -144,17 +144,50 @@ chmod 400 awar-05-fa.pem
 
 --
 
-
-Linux Directory Structure : 
-
+D: 02/09/2025
 
 
+--> Create a backup copy of your volume.. 
+--> Add addl storage at aws console level
+--> Login to OS, "gxfs_rowfs" / "growpart", increase the volume size at OS level
+--> Validate the changes.. Sanity Check.. 
 
 
+1. Pre-Activity Steps : Take backup
+2. Actual Activity : 
+3. Post Activity steps 
 
 
+Process to Follow: 
+
+CRQ process : Change Request.. Increase the volume size / Change instance type.. 
+
+CAB Meeting : Change Advisory Board.. 
+
+Present our change.. Once it is approved.. 
+
+--> Does this change require any downtime.? yes
+--> Does this change impact customers.? 
+--> How critical is this server is.? low, medium, high
+--> When you are planning for this change.? Ans : Saturday Early hours.. 
+--> What are the teams involved in change implementation.? Linux, AWS, Application Support.. 
+--> Who will do the validations after the CRQ Window.? Ans: PS (Production Support).. Dev team.. 
 
 
+t3.small --> t4g.large ==> 
+
+
+RCA : Root Cause Analysis : Identifying the root cause of the issue.. 
+PIR : Post Incident Report : After the incident is fixed, We prepare a report to take actions.. 
+	--> Not to get same issue again.. 
+	--> Alerting, is similar issue occurs
+	--> Who is responsible to monitor, fix the issue.
+
+---
+
+Snapshot : backup copy of an ebs volume.. 
+
+--> Snapshots are point-in-time copies.
 
 
 
