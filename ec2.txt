@@ -176,7 +176,6 @@ Present our change.. Once it is approved..
 
 t3.small --> t4g.large ==> 
 
-
 RCA : Root Cause Analysis : Identifying the root cause of the issue.. 
 PIR : Post Incident Report : After the incident is fixed, We prepare a report to take actions.. 
 	--> Not to get same issue again.. 
@@ -188,6 +187,58 @@ PIR : Post Incident Report : After the incident is fixed, We prepare a report to
 Snapshot : backup copy of an ebs volume.. 
 
 --> Snapshots are point-in-time copies.
+
+---
+
+Golden AMI : 
+
+10 EC2 Instances 
+
+Moniroting - datadog agent, site24x7 agent
+security - prohance, anti virus
+Corporate Software - genai, genie..
+Dat to day - vim, telnet, pdf viewer, ms office.. 
+Standards - OS Hardening, CIS benchmarks.. 
+
+
+Option 1 : Launch 1 brand new instance at a time.. connect and configure.. Once confidine, go to 2nd instance and perform same.... 10th...
+
+Option 2 : Launch 1 brand new instance first.. connect to it and configure it.. Once configuration completed, Validate it.. Then create it as a Template (Golden-AMI).. Then you can use this teamplete and launch n's ec2 instances..
+
+
+EC2 --> Connect --> 2 gb vol add, httpd install and create custom webpage, tree package.. user add --> Create an AMI --> 
+Launch a new instance from that AMI.. COnnect and verify.. 
+
+
+/dev/nvme1n1
+
+file -s /dev/nvme1n1
+
+mkfs -t xfs /dev/nvme1n1
+
+mkdir newvol
+
+mount /dev/nvme1n1 newvol/
+
+tail -n 1 /etc/mtab
+
+---
+
+EIP : Elastic IP Address : Gives a Dedicated IP address for our ec2 instance.
+--> Default behaviour is "Public IP" will change when we perform stop and start of our ec2 instance.
+
+Dedicated/Static Public IP to our instance using EIP.
+
+AWS cost us for EIP. Attached/unatatched state.. 
+
+
+13.235.241.174
+35.154.250.197
+
+13.202.142.58 - EIP
+13.202.142.58
+
+---
 
 
 
