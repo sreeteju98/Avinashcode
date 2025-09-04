@@ -240,6 +240,85 @@ AWS cost us for EIP. Attached/unatatched state..
 
 ---
 
+What does firewall do.?
+It filters "incoming" and "outgoing" traffic. (filter = allow/deny)
+
+SG's / Security Group act as a firewall at instance level.
+
+Inbound Rules : Define what type of traffic should be allowed into ec2 instance. (SSH)
+Outbound Rules : Define what type of traffic is allowed to access to the internet.
+
+We always takes care about the "INBOUND RULES".
+
+We have only Allow option, No Deny option availble. 
+
+Ports We use comonly : 
+
+SSH : 22
+DNS : 53
+HTTP : 80
+HTTPS : 443
+MYSQL : 3306
+RDP : 3389
+postgresql : 5432
+MSSQL : 1433
+NFS : 2049
+http alternatives : 8080 / 8888 
+
+
+
+We never open ssh/rdp open to the world.
+If you want to delivering webpages (http/https) to the world, THen its obsolutely okat to open the traffic to everyone.
+
+ssh : my-network
+http: anywhere
+
+------
+
+Monitoring : Car dashboard.. Speed / fuel / rpm..
+Observability : 90 km/p ++ --> Why that sound, it goes and fixes issue.. 
+
+---
+
+Cloudwatch is the core monitoring service provided by AWS. It enabled by deafulty and monitors our resources.
+
+EC2: We have 2 types of monitorings..
+--> Basic Monitoring : 5 minutes granualarity
+--> Detailed Monitoring : 1 min granularity
+
+--> CPU, Network, Storage metrics available by default. 
+--> Memory metrics not available with default cw metrics. You need to install CW Agent to get RAM/Memory usage report.
+
+
+---
+
+When an ec2 instance is running with low CPU ( CPU <=20% for more than 5 minutes ), then i want to treat this as low usaged instance, want to stop it, also send a notification.
+
+--> 
+
+
+When an ec2 instance is running with high CPU ( CPU >=80% for more than 5 minutes ), then i want to treat this as high usaged instance, want to restart it, also send a notification.
+
+---
+
+SNS : Simple Notification Service : 
+--> We have to create a topic, then we need to add subscribers to the topic. 
+--> Subscriber have to confirm the subscription.
+
+---
+
+
+dnf install stree -y
+
+nproc --> cpu count
+
+stress --cpu 2 --timeout 600
+
+
+---
+
+--> We increase the resources : Vertical Scaling
+--> We add extra servers : Harizontal Scaling
 
 
 
