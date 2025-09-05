@@ -317,8 +317,69 @@ stress --cpu 2 --timeout 600
 
 ---
 
---> We increase the resources : Vertical Scaling
+--> We increase the resources : Vertical Scaling.. 
 --> We add extra servers : Harizontal Scaling
+
+vertical Scaling : If we are running our application, only in single ec2 instance.. If somthing happens..???
+
+---
+
+EFS : 
+
+Support only Linux OS..
+Wont work with Windows... Wondows has seperate protocol SMB and service FSx.. 
+NFS v4.1
+Network File System : 2049
+No Pre-provisioning required
+We have Unlimited Storage
+Pay per usage
+
+Performance Modes:
+	--> General Purpose : Defualt.. Suitable for most of the workloads
+	--> Max I/O : We can configure desired input and Output operations.
+	
+Throughput Modes :
+	Bursting : It scales based on the load.
+	Provisioning : Fixed throughput. 
+
+
+EFS Require a security group.. Port : 2049.. 
+We have to open Port 2049, And need to be avaibale to 
+
+--> EC2 Instances has a Security group, Add that Security group ID (More Secure)
+--> EC2 Instances with "Private IP" (Secure)
+--> Entire VPC (Some what secured)
+--> Entire World (Not at all secured)
+
+---
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport 
+fs-031202fdf06db4568.efs.ap-south-1.amazonaws.com:/ <mount-directory>
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-031202fdf06db4568.efs.ap-south-1.amazonaws.com:/ sahred/
+
+
+1. Create a directory and mount it in instance-1,.. create some data.. 
+2. Create a directory and mount it in instance-2..  verify data.. 
+
+---
+
+Instance -1 : Install httpd and mount /var/www/html/ path to EFS
+Instance -2 : Install httpd and mount /var/www/html/ path to EFS
+
+
+dnf install httpd -y
+systemctl enable httpd --now
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-031202fdf06db4568.efs.ap-south-1.amazonaws.com:/ /var/www/html/
+
+---
+
+PG: 
+
+
+
+
 
 
 
