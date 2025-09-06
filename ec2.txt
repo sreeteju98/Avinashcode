@@ -375,16 +375,111 @@ sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,ret
 
 ---
 
-PG: 
+PG: Placement group : Help us to manage instance launch inside an AWS DC..
+
+Cluster PG : All instance uses same hardware, same network, same power connectivity.. : Ultra low latency.. 
+
+Partition PG : We can combine instances in a partition.. Every Partition has its own power connection, network connectivity.. 
+
+Spread PG : Every instance will have its own power and network conenction.. it wont share power/network with other resources launched in same placement group.. 
+
+---
+
+[ENVIRONMENT]-[Platform]-[ServcieType]-[client-ID]-[01/02]
+
+P-LNX-WEB-ICI-02
+
+Environment:
+
+P --> production
+U --> UAT
+Q --> QA
+D --> Development
+S --> Sandbox
+T --> Training
+
+Platform:
+
+WIN --> Windows
+LNX --> Linux
+
+Servcie Type:
+
+APP - Application Server 
+DBS - Database Server
+WEB - Web Server
+FSR - File server
+HDP - Hadoop distributed server
+ADS - Activi Directory Server
+
+Clients:
+
+HDF
+ICI
+YES
+
+----
+
+AWS EventBridge : We can perform Event-Driven proceesess and Scheduled processes.. 
 
 
 
 
 
+{"version":"0","id":"98eb2d02-e6e2-abc3-214f-11cfd7d3a085","detail-type":"EC2 Instance State-change Notification","source":"aws.ec2","account":"982424467695","time":"2025-09-06T04:51:41Z","region":"ap-south-1","resources":["arn:aws:ec2:ap-south-1:982424467695:instance/i-08aded6c9f7b09de8"],"detail":{"instance-id":"i-08aded6c9f7b09de8","state":"stopping"}}
 
 
+{
+   "version":"0",
+   "id":"98eb2d02-e6e2-abc3-214f-11cfd7d3a085",
+   "detail-type":"EC2 Instance State-change Notification",
+   "source":"aws.ec2",
+   "account":"982424467695",
+   "time":"2025-09-06T04:51:41Z",
+   "region":"ap-south-1",
+   "resources":[
+      "arn:aws:ec2:ap-south-1:982424467695:instance/i-08aded6c9f7b09de8"
+   ],
+   "detail":{
+      "instance-id":"i-08aded6c9f7b09de8",
+      "state":"stopping"
+   }
+}
+
+---
+
+Input Path mapping:
+
+{
+    "instance-id": "$.detail.instance-id",
+    "state": "$.detail.state",
+    "time": "$.time",
+    "region": "$.region",
+    "account": "$.account"
+}
+
+---
+
+Input template:
+
+"In this Account: <account>, We have an Instance in <region> with <instance-id> and at <time> it chnages its state to <state>"
 
 
+---
+
+
+Minutes : 0 - 59
+Hours : 0 - 23
+Day of Month : 1-31
+Month : 1-12.. JAN-DEC
+Day of week - SUN-SAT.. 1-7..
+year - Year
+
+* --> Any value
+? --> No Specific Value
+- --> from to to (mon-wed)
+/ --> Step value (*/5 --> every 5th min)
+, --> value1 and value2 (mon,web)
 
 
 
