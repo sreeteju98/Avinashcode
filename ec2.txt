@@ -481,6 +481,166 @@ year - Year
 / --> Step value (*/5 --> every 5th min)
 , --> value1 and value2 (mon,web)
 
+----
+
+AWS CLI : 
+
+aws s3 ls --profile account-1
+
+Security Risks: This information stores in plain text format in our local laptop. If someone grabs, it.. security issue.. 
+
+
+--> windows OS : c:/users/administrator(avinash)/ (you will see ".aws" folder) --> We will have 2 files (1. credentials and config)
+--> Linux OS : Home directory (cd ~) --> ls -a (hidden)
+
+
+--> Console 
+--> CLI
+--> Cloudformation
+--> Terraform
+--> Pulumi
+--> AWS SDK/CDK
+
+---
+
+1. Download and Install AWS CLI tools.. https://aws.amaazon.com/cli  --> windows/Linux/Mac
+
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+2. Create an IAM User, (No need to enable "Management console" option, if you want to use this user dedicatedly for CLI operations)... Then Navigate to "Security credentials", create Accesskey and SecretAccesskey.
+
+3. Open "Command prompt" / "Terminal" and run the following command
+
+aws configure
+Enter Accesskey :
+Enter SecretACcess :
+Enter Default Region : ap-south-1
+Enter output format : table/text/json
+
+
+aws sts get-caller-identity 			--> To identify as a what user you are working in CLI.
+
+aws s3 ls 
+aws ec2 describe-instances --region ap-south-1
+
+
+---
+
+commands syntax :  aws <service-name> <command> <arguments> <region> <outpur-format> 
+
+aws s3 ls
+
+aws s3 mb
+
+
+# Create the IAM user
+aws iam create-user --user-name avinash-cli-123
+
+# Attach the S3FullAccess managed policy
+aws iam attach-user-policy --user-name avinash-cli-123 --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+
+
+---
+
+aws s3 ls | awk '{print $3}
+
+aws s3 ls 
+
+
+---
+
+aws iam list-users --query "Users[].UserName" --output text
+
+---
+
+
+
+laptop --> dev, uat, prd, training..??????
+
+dev --> user
+uat --> user
+prd --> user
+
+---
+
+I want to use my laptop to access 2 or more diff environments simunt...
+
+
+--profile
+
+aws configure 			--> "Default" profile will create
+
+aws configure --profile dev
+Accesskey:
+SecretKey:
+region
+output
+
+aws configure --profile uat
+Accesskey:
+SecretKey:
+region
+output
+
+
+aws s3 ls --profile dev
+
+aws s3 ls --profile uat
+
+---
+
+aws ec2 describe-instances --query "Reservations[].Instances[].InstanceId" --profile uat
+
+---
+
+Launch an ec2 instance.. verify cli tools installation status.. then will try to access s3/iam/ec2.. 
+
+
+s3 <-- IAM Role --> ec2
+
+IAM Role --> 
+1. Where you are going to use this role.. : ec2 / s3 / lambda / eb-scheduler.. 
+2. What permissions you allow from the resource you are accessing.. : s3readonly.. 
+
+---
+
+How to perform switch role..
+
+1. Login to the account, where you want to switch.. Create an IAM role.. While creating, choose "other account" --> provide your Existing/first/from-where-you-want-to-login account id.. Then provide the "policy".. then use the link of the IAM role generated for switch role operation..
+
+2. Use this role utl from your account-1...
+
+---
+
+--> We can login to multiple aws acocunts in a single browser by enable "multi session support"..
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
