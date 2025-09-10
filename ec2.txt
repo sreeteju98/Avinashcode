@@ -618,29 +618,76 @@ How to perform switch role..
 
 
 
+#!/bin/bash
+dnf install httpd -y
+systemctl enable httpd --now
+echo "<h1>This is my SSM Webpage</h1>" >> /var/www/html/index.html
+echo "<h2>Welcome to SSM Session</h2>" >> /var/www/html/index.html
+
+
+
+#!/bin/bash
+useradd avinash
+usermod -aG wheel avinash
+
+
+----
+
+1. Vertical Scaling : Adding more resource (i.e; cpu, memory)... Upgrading your instance to higher configuration..
+2. Horizontal Scaling : Adding more servers, by distributing your application... 
+
+**We have to stop ec2 instance, if we want to perform vertical scaling.. 
+
+
+Application LB : layer 7 LB :  It looks inside the actual request.. (http header, cookies, URL..) : takes smarter decisions.. : Microservices based or containers based workloads..
+--> works with http, https protocols
+
+Network LB : Layer 4 LB :  It makes routing decisions based on IP Address and Port Number. It doesnt look into the actual data like ALB.
+--> works/support with tcp, tls, udp.. 
+
+
+
+#!/bin/bash
+dnf install httpd -y
+systemctl enable httpd --now
+echo "<h1>This is my web Web Server - 2</h1>" >> /var/www/html/index.html
+echo "<h2>From ap-south-1b</h2>" >> /var/www/html/index.html
+
+
+Create a Dedicated SG for your Web Servers --> 80 --> inbound "LB-SG"
+Create another Dedicated SG for your Load balancer --> 80 --> inbound --> 0.0.0.0/0
+
+
+Internet : Works over internet
+Internal : Works within network
 
 
 
 
+#!/bin/bash
+dnf install httpd -y
+systemctl enable httpd --now
+echo "<h1>This is my web Web Server - 8080</h1>" >> /var/www/html/index.html
+echo "<h2>From ap-south-/1a/1b</h2>" >> /var/www/html/index.html
 
 
+Load balancing algorithm
+The method used by the load balancer when determining which targets will receive requests
+
+Round robin - default
+Round robin routes requests evenly across healthy targets, in a sequential order. This is commonly used when the received requests are similar in complexity and the targets are similar in processing capability.
+
+Least outstanding requests
+Least outstanding requests routes requests to the target with the lowest number of in progress tasks. This is commonly used when the received requests vary in complexity or the targets vary in processing capability.
+Not compatible with the Slow start duration attribute
+
+Weighted random
+Weighted random routes requests evenly across healthy targets, in a random order. While Anomaly detection is applied by default, you must turn on Anomaly mitigation for Automatic Target Weights (ATW) to apply.
 
 
+---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Stickyness / Sticky session : 
 
 
 
