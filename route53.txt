@@ -1,0 +1,63 @@
+Route53 : 
+
+DNS port number is 53
+
+DNS : Domain Naming Service/System.. 
+
+DNS helps to access websites easily without remembering the IP address of the server/webserver.
+
+FQDN/Fully Qualified Domain Name <--> IP/Internet Protocol Address and Vice versa
+
+
+Domain Registrers: Godaddy, AWS Route53, Bigrock, Namecheap, Hostinger.. 
+
+ICANN : Internet Corporation for Assigned Names and Numbers (ICANN) : Uniqueness globally.. 
+IANA : Internet Assigned Numbers Authority : Root Zone DB
+
+---
+
+awswithavinashreddy.com --> Godaddy --> Server hosted in AWS
+learnaws.today --> Godaddy  --> Server hosted in AWS
+learnaws.co.in --> Godaddy --> Server hosted in AWS
+avizacademy.com --> Hostinger --> Server hosted in AWS
+
+
+Configure these 4 name servers at your domain registrer.. 
+
+ns-889.awsdns-47.net
+ns-1838.awsdns-37.co.uk
+ns-1026.awsdns-00.org
+ns-476.awsdns-59.com
+
+awswithavinashreddy.com --> AWS NS --> Redirect to AWS Account
+
+
+A Record : Address Record : Maps domain name to IPv4
+AAAA Record : Address Record : Maps domain name to IPv6
+CNAME Record : Cananical Name : It maps to a domain to another domain. (fb.com --> facebook.com)
+MX Record : Mail Server/Exchange Records for email handlings..
+TXT Record : Stores text data.. used to domain verification / other purposes..
+PTR Record : Reverse DNS lookup..
+
+Alias Record : AWS Specific Record, it helps to map resources i.e; ELB, Cloudfront, S3.. 
+
+
+#!/bin/bash
+dnf install httpd -y
+systemctl enable httpd --now
+echo "<h1>This is my Mumbai Web Server</h1>" >> /var/www/html/index.html
+echo "<h2>Created for Route53 Session</h2>" >> /var/www/html/index.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
