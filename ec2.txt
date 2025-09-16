@@ -641,9 +641,13 @@ usermod -aG wheel avinash
 
 Application LB : layer 7 LB :  It looks inside the actual request.. (http header, cookies, URL..) : takes smarter decisions.. : Microservices based or containers based workloads..
 --> works with http, https protocols
+--> Dont support "Dedicated/Static IP Address".
+--> Works with "roud robin", "Least outstanding req" and "weighted"
 
 Network LB : Layer 4 LB :  It makes routing decisions based on IP Address and Port Number. It doesnt look into the actual data like ALB.
 --> works/support with tcp, tls, udp.. 
+--> Supports "Dedicated/Static IP Address".
+--> Works with "Flow Hash Algorith"
 
 
 
@@ -684,10 +688,109 @@ Not compatible with the Slow start duration attribute
 Weighted random
 Weighted random routes requests evenly across healthy targets, in a random order. While Anomaly detection is applied by default, you must turn on Anomaly mitigation for Automatic Target Weights (ATW) to apply.
 
-
 ---
 
 Stickyness / Sticky session : 
+
+---
+
+--> You have a client, You are delivering an application via LB to the client.. To access the application at client end, client need to whitelist the IP Address of the load balancer.. How can we allocate a fixed/dedicated IP address to the LB.
+
+--> Use NLB and attach EIP to LB while creating it.
+--> If the application is already developed and delivering with ALB, Then "Create ALB as Target" to the Network Load balancer.
+
+---
+
+nslookup <lb-dns-name>
+
+nslookup my-nlb-3696d85e41a30f50.elb.ap-south-1.amazonaws.com
+
+---
+
+EC2 SG : http --> ELB-SG
+ELB SG : http --> 0.0.0.0/0
+
+---
+
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0634447a58aba3bfa.efs.ap-south-1.amazonaws.com:/ /var/www/html/
+
+---
+
+AI powered IDE : KIRO
+
+
+Step 1 : Launch an ec2 instance, While launching attach "s3readonly role" and make it as webserver by installing "httpd"
+Step 2 : create an EFS and Mount it to ec2 Document root path (/var/www/html/) and make it perm mount.
+Step 3 : create some data / use the shared Portfolio, Upload it to an s3 bucket as a zip, then copy it to ec2 instance /var/www/html/ path and verify the output..   Restart and validate the changes we performed.
+Step 4 : once everything is good, Now, Create a "GoldenAMI". 
+
+Step 5 : create an ELB, Dont add any ec2 instance. (Plain/empty loadbalancer)
+
+
+ASG Creation has primarily 2 steps.
+1. Create a launch template   --> All settings for new instance
+2. Create ASG					-->When to add/remove instances.. how to add to lb..  
+
+	2.1 Manual Scaling
+	2.2 Schedule Scaling
+	2.3 Automatic Scaling
+		--> Simple Scaling
+		--> Step Scaling
+		--> Target Tracking Scaling
+
+
+---
+
+RPO : Recovery Point Objective : how much data we can afferd to lose.
+RPO : 30 Minutes... Create a snapshot for every 30 minutes.. 
+
+
+RTA : Recovery Time Actual : How long it will take to bring the server backup.
+RTA : System down at 08:00 AM and by 8:45 We fully brought the system online.. RTA: 45 Min
+
+
+---
+
+
+meta-data URL : 
+curl http://169.254.169.254/latest/meta-data/instance-id
+
+
+
+ami-id
+ami-launch-index
+ami-manifest-path
+block-device-mapping/
+events/
+hostname
+iam/
+identity-credentials/
+instance-action
+instance-id
+instance-life-cycle
+instance-type
+local-hostname
+local-ipv4
+mac
+managed-ssh-keys/
+metrics/
+network/
+placement/
+profile
+public-hostname
+public-ipv4
+public-keys/
+reservation-id
+security-groups
+services/
+system
+
+
+
+
+
+
+
 
 
 
