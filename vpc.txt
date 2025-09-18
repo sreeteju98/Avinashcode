@@ -1,0 +1,125 @@
+
+
+Public IP Address : Globally unique IP address allocated to a device. In our home n/w ISP (Internet Service provider) allocates a public IP for our network.
+
+Private IP Address : used within an internal network and it also should be unique but within the network.
+
+IPv4 : 32 bit address space.. 2^32 --> 4.3 billion..
+IPv6 : 128 bit address space.. 2^128 --> 340 undecillions..
+
+
+How to identify Public and Private IP address of a machine.
+
+Private : ipconfig /all     (mac: ip addr / ifconfig / ip)
+Public : iplocation.io / whatismyip.com / whatismyipaddress.com
+
+---
+
+IPv4 has 5 classes
+
+Class A : 0.0.0.0 - 126.255.255.255
+Class B : 128.0.0.0 - 191.255.255.255
+Class C : 192.0.0.0 - 223.255.255.255
+
+Class D : 224.0.0.0 - 239 : Multicasting
+Class E : 240.0.0.0 - 255 : Reserved
+
+127 --> loopback address..
+
+===
+
+Private IP Address Ranges : 
+
+Class A : 10.0.0.0 - 10.255.255.255
+Class B : 172.16.0.0 - 172.31.255.255
+Class C : 192.168.0.0 - 192.168.255.255
+
+===
+
+Network : Group of inter connected devices. : N
+Host : a device with in a network. : H
+
+CLass A : N.H.H.H
+CLass B : N.N.H.H
+CLass C : N.N.N.H
+
+---
+
+Class A : 0.0.0.0 - 126.266.266.266 
+Class A : N.H.H.H
+--> How many Networks we can create.? Ans: 127 network
+--> How many Hosts we can create, in a single network.? Ans: 16 million hosts
+
+Class B : 128.0.0.0 - 191.255.255.255
+Class B : N.N.H.H
+--> How many Networks we can create.? Ans:  16,000 Network
+--> How many Hosts we can create, in a "single network".? Ans:  65k hosts
+
+Class C : 192.0.0.0 - 223.255.255.255
+Class C : N.N.N.H
+--> How many Networks we can create.? Ans:  2 millions Network
+--> How many Hosts we can create, in a "single network".? Ans: 256 hosts
+
+---
+
+Subnetting: The process of dividing a larger network into smaller subnetworks.
+
+CIDR : Classless Inter Domain Routing : 
+
+
+IPv4 : 32 bit.. 
+
+/32 --> 32 - 32 = 0 ==> 2^0 ==> 1
+/31 --> 32 - 31 = 1 ==> 2^1 ==> 2
+/30 --> 32 - 30 = 2 ==> 2^2 ==> 4
+/29 --> 32 - 29 = 3 ==> 2^3 ==> 8
+/28 --> 32 - 28 = 4 ==> 2^4 ==> 16		--> Min a VPC Supports
+/24 --> 32 - 24 = 8 ==> 2^8 ==> 256
+/20 --> 32 - 20 = 12 ==> 2^12 ==> 4096
+/16 --> 32 - 16 = 16 ==> 2^16 ==> 65536	--> Max a VPC Supports
+
+TechSpec : Technical Specification Document
+
+--> We cannot use all the IPs..  
+
+We cannot use First IP and Last IP of any network (not only in Cloud)...
+In AWS, Along with regular 2 IPs, AWS Reserves 3 more IPs...
+
+1. Network ID : First IP
+2. broedcost IP : Last IP
+3. AWS DNS Server: Second IP address
+4. AWS VPC Route :Third IP Address
+5. Future Usage ; 1 IP Address
+
+/24 --> 256 IPs ==> 256 - 5 ==> 251 Usable IPs
+/28 --> 16 IPs ==> 16 - 5 ==> 11 Usable IPs
+
+
+A client is lookking a very small network for his VPC, he is planning to launch 12 ec2 instance.. Which subnet you suggest.??
+
+/28 --> 16 IPs X
+/27 --> 32 IPs 
+
+---
+
+Entire VPC
+
+/24 --> 32 - 24 = 8 ==> 2^8 ==> 256
+
+Subnets: 
+Public SUbnets : internet Facing
+App Subnets : App Servers, w/o internet
+DB Subnets : Db
+
+
+
+
+
+
+
+
+
+
+
+
+
