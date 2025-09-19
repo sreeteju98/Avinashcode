@@ -111,8 +111,59 @@ Public SUbnets : internet Facing
 App Subnets : App Servers, w/o internet
 DB Subnets : Db
 
+=======
 
 
+CIDR Planning : 
+--> How big VPC we required.? Ans : 192.168.0.0/23
+--> How many Subnets we required.? Ans : 6 subnets... 
+--> How many Public Subnets.?  Ans : 2 Public : 192.168.0.0/26, 192.168.0.64/26	
+--> how many Private Subnets.? Ans : 4 private (App & DB) : 192.168.0.128/26, 192.168.0.192/26, 192.168.1.0/26	and 192.168.1.64/26 
+--> Any future plans, so we can reserve.? Ans : Yes.. 192.168.1.128/26 & 192.168.1.192/26
+
+
+8 Subnets
+2 --> Web/Public
+2 --> App/Private
+2 --> DB/Private
+2 --> Lambda/Private
+
+Public Subnet : Internet Facing
+Private Subnet : No direct exposure to outer world.. 
+	--> Private Subnet with Internet (NAT gateway).. (Patching, External endpoints)
+	--> Private Subnet without internet
+
+
+Step 1 : Create a VPC with Decided CIDR : 192.168.0.0/23
+Step 2 : Create Subnets within this VPC.
+
+	WEB-CVPC-1A : 192.168.0.0/26
+	WEB-CVPC-1B : 192.168.0.64/26
+	APP-CVPC-1A : 192.168.0.128/26
+	APP-CVPC-1B : 192.168.0.192/26
+	DB-CVPC-1A : 192.168.1.0/26
+	DB-CVPC-1B : 192.168.1.64/26 
+
+Step 3 : Create an IGW / Internet gateway and attach to VPC. 
+
+Step 4 : Create Required Route Tables.
+
+	Public Route: Add subnets you want to make it Public. ** Add a route via "Internet Gateway".
+	Private Route: Add subnets you want to make it private.
+
+Step 5 (Optional but Recommended) : Enable DNS Hostnames at VPC Level and Enable "auto assign public ip" for public subnets.
+
+--
+
+launch an ec2 instance in "CVPC's Public Subnet".. 
+launch an ec2 instance in "CVPC's Private Subnet".. 
+
+Jump Server / Bastian Host : Its a dedicated ec2 instance, runs in custom VPCs publicsubnet. We can use this machine to connect to CustomVPCs private subnet ec2 instances. 
+
+---
+
+NAT gateway : Its a virtual component runs in customVPC public SUbnet., Designed to provide internet for Private subnet ec2 instances.
+** We can have multiple NAt gateways for our workload.
 
 
 
