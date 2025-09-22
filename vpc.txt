@@ -165,6 +165,25 @@ Jump Server / Bastian Host : Its a dedicated ec2 instance, runs in custom VPCs p
 NAT gateway : Its a virtual component runs in customVPC public SUbnet., Designed to provide internet for Private subnet ec2 instances.
 ** We can have multiple NAt gateways for our workload.
 
+---
+
+Flow Logs : Enable logging at VPC level.
+
+---
+
+NACL : Network Access Control List : 
+--> SG act as firewall at Instance Level..
+--> NACL act as firewall at Subnet Level..
+
+--> SG dont have option to deny the traffic.. Only allow possible.. 
+--> NACL have option to Deny/allow the traffic...
+
+--> SG are stateful.. We have to take care about "inbound rules" only..
+--> NACLs are Stateless.. We have to take care about "inbound" and "outbound" rules..
+
+--> One subnet can be member of only 1 NACL at a time.. 
+
+Works similar to Security groups, but works at Subnet level.. 
 
 
 
