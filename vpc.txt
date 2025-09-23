@@ -187,6 +187,60 @@ Works similar to Security groups, but works at Subnet level..
 
 ---
 
+Gateway Endpoint : AWS Managed : Only Data transfer applicable
+Interface Endpoint : NIC Creates and need to pay per hour
+
+Endpoints also referred as "Private Links"
+
+---
+
+VPC peering : helps to establish the connectivity between multiple VPCs.
+
+Same Region VPC in Same Account
+Another Region VPC in Same Account
+Other Account VPC in same Region
+Other Account VPC in Other Region
+
+--> Source VPC and Destination VPC should not contains same CIDR range.
+--> 
+
+
+info			requester VPC			accepter VPC
+
+VPC ID			vpc-05d236fcca10be170	vpc-01eceb1f570ddab7d
+VPC CIDR		192.168.0.0/23			172.16.0.0/24
+Region ID		ap-south-1				ap-south-1
+Account ID		982424467695			828477980115
+
+--> We have to update the "Requester VPCs Route tables" with "Accepter CIDR range".. and Vice Versa..
+
+--> VPC peering is non-transitive peering.
+
+---
+
+AWS Direct Connect : Its a dedicated physical connectivity between our corporate network and AWS environment. 
+
+--> We will get connectivity from AWS parterned telecom provider.
+
+---
+
+Site-to-Site VPN Connection : 
+--> It needs internet.
+--> It needs a Dedicated firewall device. (Fortinet, watchguard, yamaha, f5, brracuda, sonicwall)
+
+1. Create a Virtual private Gateway (AWS Side Component)
+2. Create a Customer Gateway (Customer Side component - Firewall Public IP)
+3. Establish connection using above 2.. 
+
+
+
+
+
+
+
+
+
+
 
 
 
