@@ -233,6 +233,59 @@ Site-to-Site VPN Connection :
 3. Establish connection using above 2.. 
 
 
+---
+
+Transit Gateway : 
+
+Step 1 : Create a transit Gateway in Central networking account.
+
+Step 2 : Share it with Multiple AWS accounts (member Accounts) using RAM (Resource Access Manager) Service. now, switch to member accounts RAM service screen and accept the invitation.
+
+Step 3 : In CentralNW Account (Where TGW present), create a TGW Attachment and choose the local vpc.
+
+Step 4 : In Member accounts (aviz8), Create a transite gateway attachment with local VPCs desired subnets.
+
+Step 5 : Switch to CentralNW account, Choose/find Attachment and accept the attachment.
+
+Step 6 : Edit Member Accounts route table with "CentralNW" account's CIDR range.
+
+Step 7 : Edit CentralNW Accounts route table with member account's CIDR range.
+
+---
+
+If you are using IPv6 in your VPC configuration, Similar to NAT Gateway, We can use "Igress only internet Gateway" to provide internet to Private subnet ec2 instances.
+
+---
+
+Can we extend an Existing VPCs CIDR range.?
+Ans : yes.. New IP range should be in same class, should not collide with existing CIDR range. 
+
+---
+
+RITM : Request Item : Ticket
+
+SNOW : Service Now (Alternative ; cherwell, ivanti....  Internal ticketing tool)
+
+REQ00123 --> Overall request / new user req
+	RITM001230 --> laptop
+	RITM001230 --> Headset	
+
+---
+
+SDLC : Software Development Life cycle : 
+
+Dev : ..??? AWS
+QA : ..??? AWS
+UAT : ..??? AWS
+PRD : ..??? AWS
+C NW : ..??? AWS
+Central logging : All account logs stores here.. 
+
+
+
+
+
+
 
 
 
