@@ -1,0 +1,94 @@
+RDS : Relational Database Service : 
+
+--> Amazon Aurora (Mysql Compatable & PostgreSQL compatable)
+--> Microsoft SQL / MSSQL : SSMS (SQL Server Management studio)
+--> MySQL : (mysql workbench / workbench)
+--> PostgreSQL : pgadmin / dbeaver
+--> mariaDB : workbench
+--> oracle : oracle sql dev / toad
+--> IBM DB2 : db2 sql client
+
+
+1. Create a DB Subnet group with 2 Private subnets we created in our Custom VPC.
+
+Hardware configuration.. OS Installation.. OS patching..
+DB Software installation and configuration.. Backups.. High Availability..
+
+2. Create a Security group, Open port based on Db Engine (mysql: 3306) to Source as "ec2 instances SG/Jump Svr SG"..
+
+---
+
+
+EOL : Every Db engine will have End of Life.. We need to upgrade it before reaching EOL.
+
+--> In Org, We always follow n-1 mechanism.. 
+
+Storage Autoscaling: This feature helps RDS to add addl storage automatically.
+
+BinLog: The MySQL binary log, or binlog, is a crucial component of MySQL's architecture, serving as a record of all data-modifying operations performed on the database.
+
+
+PITRO
+
+https://dev.mysql.com/downloads/windows/installer/8.0.html
+
+---
+
+myappdb.chc66g4wq10o.ap-south-1.rds.amazonaws.com
+proddb.awswithavinashreddy.com
+
+dbadmin
+Avinash12345
+
+
+dnf install mariadb105 -y
+
+mysql -h proddb.awswithavinashreddy.com -u dbadmin -P 3306 -p
+
+mysql -h <hostname> -u <username> -P <port-num> -p
+
+
+---
+
+CREATE SCHEMA `school` ;
+
+SHOW DATABASES;
+
+USE school;
+
+SHOW TABLES;
+
+CREATE TABLE students (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(50),
+	age INT,
+	grade VARCHAR(10)
+)
+
+
+INSERT INTO students (name, age, grade)
+VALUES ('Avinash', 35, '10th');
+
+
+SELECT * FROM students;
+
+SELECT name, grade FROM students;
+
+SELECT * FROM students WHERE age > 36;
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE students SET age = '33' WHERE name = 'Anudeep';
+
+DELETE FROM students WHERE name = 'Anudeep';
+
+
+---
+
+
+
+
+
+
+
+
