@@ -63,7 +63,7 @@ CREATE TABLE students (
 	name VARCHAR(50),
 	age INT,
 	grade VARCHAR(10)
-)
+);
 
 
 INSERT INTO students (name, age, grade)
@@ -85,6 +85,13 @@ DELETE FROM students WHERE name = 'Anudeep';
 
 ---
 
+Multi-AZ Deployment : 
+
+IP 1 : 172.31.24.184
+IP 2 :  172.31.2.56
+
+
+Read Replica : 
 
 
 
