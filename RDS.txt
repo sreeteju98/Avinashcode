@@ -91,11 +91,64 @@ IP 1 : 172.31.24.184
 IP 2 :  172.31.2.56
 
 
-Read Replica : 
+Read Replica : Another copy of our DB, Supports only read operations.
+We can run it in same region or other region.
+
+---
+
+DynamoDB : AWS Managed Service..
+--> Serverless categery, We get charged based on "read" and "write" operations..
+
+--> Single digit millisecond latency at any scale. 
+
+--> NoSQL, Data stores in JSON format.
+
+{
+"SNo": 1,
+"Name" : Avinash,
+"Contact": 123
+},
+{
+"SNo": 2,
+"Name" : Anudeep,
+"Contact": 234
+},
+{
+"SNo": 3,
+"Name" : Aravind,
+"Contact": 12211
+}
+
+---
+
+Nike / walmart : 
 
 
+OLTP : Online Transactional process : 
+OLAP : online Analytical process : 
 
 
+https://youtube.com/playlist?list=PLneBjIzDLECkmd-0-gcegDghBdC0hRukz&si=Rt3PoTWpDWW8gqT2
+
+---
+
+For DBs we have cache services..
+
+RDS : Elasticache
+	2 Caching engines
+	--> Redis **
+	--> memcacheD
+
+DynamoDB : DAX (Dynamo Db Accelerator)
+
+https://youtu.be/wp1QnBW2kIM?si=w_a48a2aZ3lAUFKp
+
+S3: 
+Storage classes
+Versioning
+Life Cycle Rule
+Replication
+Encryption
 
 
 
