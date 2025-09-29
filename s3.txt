@@ -1,0 +1,87 @@
+S3 : Simple storage Service
+
+Volumes = EBS (Elastic block Storage) = Block based storage
+Shared Storage = EFS (Elastic File System) = network based storage, we have to mount..
+
+S3 is Object based storage.. You upload anything, it will be treated as an object..
+
+Store any flat files.. pdf, mp3, mp4, documents, .xyz... You can store anything here..
+
+We store data into Buckets..
+
+bucket = Folder / Directory, but with unique namespace.
+
+we can store unlimited data into an s3 bucket
+
+No Pre-Provisioning required
+
+bucket name should be unique across the globe.
+
+Min : 3 char, Max: 63 char
+Must use lower case letters and numbers
+Cannot start with . 
+cannot end with . 
+no adjesent ..
+Should not resemble an IP address (192.168.100.1)
+
+Object = Anything you upload to s3 bucket.
+
+Min object size an s3 bucket supports : 0 Bytes
+Max object size an s3 bucket supports : 5 TB
+
+---
+
+Free Tier: 
+5 GB Standard storage
+2000 PUT (Upload)
+20,000 GET (Access/Download/view/open)
+
+---
+
+Path style : https://s3.<region-code>.amazonaws.com/bucket-name/object-name
+https://s3.ap-south-1.amazonaws.com/avinash.s3.29092025/AVA.png
+virtual path (your bucket should not contain .): https://bucketname.s3.amazonaws.com/object-name
+https://avinash.s3.amazonaws.com/aws.pdf
+
+---
+
+If you want to make any object Public : Block public Access
+--> Account Level settings
+--> Bucket level settings
+--> Object level settings
+
+--> Enable ACLs one time.
+
+---
+
+S3 Standard : Frequently Accessed data.. 99.99% Availability, 99.999999999% Durability.. 
+--> Data will be available without delay.
+--> Data replicates ">=3 AZs"
+
+S3 Standard-IA (Infrequently Access) : Infrequently accesses data.. 
+--> Data will be available without delay.
+--> Data replicates ">=3 AZs"
+
+S3 OneZone - IA :Infrequently accesses data.. 
+--> Data will be available without delay.
+--> Data stores only in 1 AZ
+
+S3 Instant Retrival : Once in quarter, we can access data without delay
+S3 Glacier Flexible Retrival / S3 Glacier Deep Archieve :: Designed for long term archieval.. 
+--> We need to initialise the restoration to access the file..
+--> Data replicates ">=3 AZs"
+
+S3 Intelligent Tier : When we are not sure about our data access patterns, we can go with this.
+
+---
+
+
+
+
+
+
+
+
+
+
+
