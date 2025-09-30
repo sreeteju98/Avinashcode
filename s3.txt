@@ -74,14 +74,37 @@ S3 Glacier Flexible Retrival / S3 Glacier Deep Archieve :: Designed for long ter
 S3 Intelligent Tier : When we are not sure about our data access patterns, we can go with this.
 
 ---
+S3 Versioning
+
+S3 Versioning allows you to maintain multiple versions of an object within the same bucket.
+By default, versioning is in a Suspended state for any bucket.
+Once versioning is enabled, S3 will keep track of all versions of objects in the bucket.
+Delete Behavior
+Typing "Delete" when deleting an object:
 
 
+---
+
+Replication Rules
+Cross-Region Replication (CRR) / Same-Region Replication (SRR)
+Replication ensures objects are copied from a source bucket to a destination bucket.
+
+Requirements:
+
+Both source and destination buckets must have versioning enabled.
+Existing objects are not replicated; only future uploads are replicated.
+To replicate all existing objects, AWS offers AWS Batch job to replicate. Cost US
+
+---
+
+Lifecycle Management Rules help automate object transitions and deletions to optimize storage costs.
+
+S3 Standard → Standard-IA → Glacier → Delete
+
+S3 Standard → Glacier → Delete
+
+S3 Standard → Delete
 
 
-
-
-
-
-
-
+---
 
