@@ -1,0 +1,55 @@
+Encryption : Converting Plain text to Cypher text/ scrambled text.. 
+
+In-Transit / At-Flight Encryption : Data encrypts when it is in travel state.. 
+--> AWS is fully responsible for in-transit encryption..
+
+Server Side Encryption / SSE : When data is in server/destination location, we can apply encryption methods..
+--> Shared responsibility..
+
+
+SSE-S3 : Default encyption key..
+--> S3 generates and Manages the key material..
+--> Whoever has access to S3 platform, They can decrypt the data..  No Additional permissions required on Encryption Key.. 
+--> Suitable for Public sharable data.
+--> No direct access to Key/material to the user.
+
+SSE-KMS (Key Management Service) - DMK (Default Master key) : 
+--> KMS Service generates and Manages the key material.. We get these keys based on service usage..
+--> Whoever has access to S3 platform, They can decrypt the data..  No Additional permissions required on Encryption Key.. 
+--> No direct access to Key/material to the user. Material Rotated by KMS service anually.. 
+--> We cannot make object public, if object is encrypted with any KMS key..
+
+SSE-KMS (Key Management Service) - CMK (Customer Managed key) : 
+--> Customer has to create the KMS key... KMS Service Manages the key material.. We can use these keys for multiple AWS services.. 
+--> Along with S3 Service Access, User/Role should have Key usage permissions, Then only they can decrypt the data..   
+--> No direct access to Key/material to the user. Material Rotated by KMS service, Or we can rotate it when we want to.. 
+--> We cannot make object public, if object is encrypted with any KMS key..
+
+
+SSE-KMS (Key Management Service) - C (Customer provided) : 
+--> Customer has to create the KMS key... Customer has to Manages the key material.. We can use these keys for multiple AWS services.. 
+--> Along with S3 Service Access, User/Role should have Key usage permissions, Then only they can decrypt the data..   
+--> User manages the Key/material. Material Can be Rotated by user/customer.
+--> We cannot make object public, if object is encrypted with any KMS key..
+
+
+Client Side Encryption / CSE : Encrypting data, before uploading it to s3 platform..
+--> Customer is fully responsible for the data and encyption key.
+
+
+
+Symmetric : A single key used for encrypting and decrypting data or generating and verifying HMAC codes.
+Asymmetric : A public and private key pair used for encrypting and decrypting data, signing and verifying messages, or deriving shared secrets
+
+---
+
+An AWS CloudHSM key store is a custom key store backed by a AWS CloudHSM cluster. Dedicated tenancy.. 
+
+
+
+
+
+
+
+
+
