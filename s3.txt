@@ -105,6 +105,97 @@ S3 Standard → Glacier → Delete
 
 S3 Standard → Delete
 
+---
+
+S3 Static Website Hosting : 
+
+--> No Server Required.
+--> Automatically we get S3 platform "availability - 99.99%" and "Durability - 99.999999999%".
+--> No configuration efforts required.
+
+Http error codes:
+
+2xx : ok/success
+3xx : Redirection errors
+4xx : Client Side error (Forbidden, non found, unautherozed)
+5xx : Server side error (internal server error, request timeout, server busy/unresponsive)
 
 ---
+
+Bucket Policies:
+
+I have an IAM user, who has "S3 Full Access".. But in one specific bucket we have sensitive information that need to protect data from Deletion and upload for this specific IAM user... 
+
+4 points..
+
+1. Bucket ARN
+2. Principal / IAM Role/User ARN 
+3. Effect : Allow/Deny
+4. Actions to take Effect(3) : PutObject, getObject, DeleteObject
+
+
+Bucket Level operation : arn:aws:s3:::avinash-qcli-test
+Object level Operations : arn:aws:s3:::avinash-qcli-test/*
+
+If you are not sure, add both... 
+
+Bucket ARN : arn:aws:s3:::avinash-qcli-test
+User ARN / principle : arn:aws:iam::982424467695:user/s3-admin
+Effect : Deny
+Actions : DeleteObject, PutObject
+
+---
+
+Default S3 performance:
+
+Read Operations : 5,500 GET Object operations per Second per prefix.. 
+Write operations : 3,500 PUT object operations per second per prefix..
+
+--> Use more prefixes
+--> Increase uniqueness in Object names
+
+---
+
+Server Access Logging : 
+
+---
+
+Events : 
+
+---
+
+Transfer Acceleration : 
+
+https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-comparsion.html?region=ap-south-1&origBucketName=amzn-s3-demo-bucket
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
