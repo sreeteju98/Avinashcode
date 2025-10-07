@@ -170,16 +170,35 @@ https://s3-accelerate-speedtest.s3-accelerate.amazonaws.com/en/accelerate-speed-
 
 ---
 
+Governance : Users with specific IAM permissions can overwrite or delete protected object versions during the retention period.
+
+Compliance : No users can overwrite or delete protected object versions during the retention period.
+
+---
 
 
+10 TB Data.. 
 
+1 pb --> 1 gbps --> 20-23 years
 
+AWS Snow Family : We can order physical devices and perform data transfer to/from AWS S3 service.
 
+snow mobile : Its a PB scale container.. 
 
+---
 
+MultiPart Upload: 
 
+aws s3 cp largefile.zip s3://bucket-name/ --part-size 100MB
 
+---
 
+What are the core 3 components of AWS global Infra.?
+-> Region
+-> AZ 
+-> Edge
+
+Cloudfront : 
 
 
 
