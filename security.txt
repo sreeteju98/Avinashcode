@@ -37,12 +37,32 @@ Operational excellence
 
 ---
 
+AWS Organisations: 
+
+Sandbox / Training - POC
+Dev - Application Development
+Testing/QA - Testing
+UAT / Pre-Prod - Pre-Prod
+Prod - Live
+DR - Disaster Recovery 
+Central NW - TGW, VPC Endpoints
+Central logging - To store all account logs.. 
+Management Account --> Where we enable AWS Organisations option.. You add all existing acocunts into this Org..
+
+--> Central Billing
+--> Easily create a new account (without Credit card/address/contact info)
+--> We can setup permissions limits/boundaries using "SCP - Service Control Polocies"..
+--> We can integrate it with IAM Identity center for Logging/user management purposes.
+
+--> SCP : 
 
 
+---
+
+WAF : Web Application Firewall.. : Firewall at application level..
 
 
-
-
+Shield : DDoS Attack : 
 
 
 
