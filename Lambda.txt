@@ -1,0 +1,121 @@
+
+ec2 : Launch instance --> apache/tomcat/nginx --> Deliver
+
+Launching an EC2 instance --> Pay: /hr /sec.. 
+
+--> Serverless 
+--> We can focus on application developement, zip the code and deploy to lambda (upload to s3 and use s3 url)..
+--> 
+
+Internal Operations : You want to automate something (i.e; aws activities)..
+External app delivery : Actual Applicaiton code can be run on Lambda service..
+
+
+--> Creating a lambda function
+--> manage permisisons (IAM Role --> IAM policies)
+--> Configurations (Timeout, Memory)
+--> We can run lambda function within a VPC, most of the times we run in seperate subnets, designed for lambda.
+
+--> lambda has a limitation: Max timeout value of lambda function is 15 Min only..
+
+--> Python
+--> .net core
+--> java
+--> go
+--> ruby
+--> Node.js
+
+Lambda-canary : It open the required website and look for the string we have given.
+
+
+
+
+REPORT RequestId: 19624ea3-95c2-484c-98b4-4e286425a7ea	
+Duration: 511.68 ms	
+Init Duration: 136.42 ms
+
+Billed Duration: 649 ms	
+
+Memory Size: 128 MB	
+Max Memory Used: 53 MB	
+
+
+
+--> Incresing the memory and timeout values.
+--> Changing the required permissions on lambda associated roles. 
+--> Can we run lambda within a VPC..?? YES
+	--> For Lambda role Make sure you associate "AWSLambdaVPCAccessExecutionRole"
+
+---
+
+--> if we are not using any lambda function periodically/frequently, it goes to idle state.. 
+
+Cold Start : First time your lambda function runs, then its going to be idle. When you start it takes time to keepo thing up and running.. --> In Backend, AWS uses new instance to set the things up.. 
+
+Warm Start : AWS reuses an already running instance, so your code runs faster without delays.
+
+
+Cold start : Car engine off when you are getting down.. You need to start engine to move.
+Warm Staret : Car engine still in running state, when you are getting down.. 
+
+
+
+
+	
+-------------
+
+Task : Am sharing some lambda functions... Deploy the lambda functions and test it. 
+(1. Volume Status check
+2. Volume encrytption check
+3. Instance Stop
+4. Instance Start)
+
+Task : Create an s3 bucket, When we upload any object to s3 bucket, It should trigger "Stop-Instance" lambda function and instance need to stop.
+
+Task  : What ever the file names starting with "A/a" should move to another s3 bucket.
+
+Task  : What ever the file names ending with ".bkp" should move to another s3 bucket.
+
+Task : Create a lambda function to perform telnet test.  get output as "Telnet success" or "telnet failed".
+
+telnet google.com 443
+
+Task : Get the list of IAM users whoever not logged in to aws account in last 1 hr.
+
+Task : 
+** Get the list of IAM users accesskeyid and secretaccess keys not used in last 90 days. Send the list of users in .csv format file and write it to an s3 bucket.
+
+
+======================================================================================================
+
+
+AWS Cloudformation : IaC Infrastructure as Code : JSON/YAML : 
+--> it's free. 
+
+Prepare a cloudformation stack. This stack are reusable.
+--> CLoudformation created resources will delete automatically when we delete the cloudformation stack.
+
+rollback on failure : yes
+
+2 ec2 instance, 3 s3 bucket, 1 rds instance
+
+AWS Console Recorder : Browser plugin
+Former2 : former2.com
+
+YAML https://www.youtube.com/watch?v=1tROGN8lw_Y
+
+==============================================================================
+
+1. Launch an ec2 instance using Cloudformation template.
+
+2. Create an s3 bucket and configure lifecycle rule. Use chatGPT/Former2 to generate the cft and deploy it by changing the bucket name and test it.
+
+3. Creating a New Security group with in the cloudformation template and using the templete onlyt Launch an ec2 instance. While launching use userdata to make it webserver also, open post 80 and 22 open for everyone. 
+Deploy it and test it.
+
+Do the above tasks with the help of chatgpt, if required. 
+
+================================================================================
+
+Read this article: https://aws.amazon.com/blogs/machine-learning/plant-leaf-disease-detection-with-amazon-rekognition-custom-labels/
+
