@@ -1,0 +1,30 @@
+Parameters:
+  InstanceType:
+    Type: String
+    Description: Choose the Instance type you want to launch
+    Default: t3.micro
+    AllowedValues:
+      - t3.micro
+      - t3.small
+
+  AvailabilityZone:
+    Type: String
+    Description: Choose the Availability Zone you want to launch the instance in
+    Default: ap-south-1a
+    AllowedValues:
+      - ap-south-1a
+      - ap-south-1b
+  
+Resources:
+  MyDevec2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0f9708d1cd2cfee41
+      AvailabilityZone: !Ref AvailabilityZone
+      KeyName: awar-05-fa
+      InstanceType: !Ref InstanceType
+
+Outputs:
+  EC2InstanceId:
+    Description: Launched Instance ID is
+    Value: !Ref MyDevec2Instance

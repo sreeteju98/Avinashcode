@@ -1,0 +1,98 @@
+#Example 1: Simple Mappings - Single fruit record
+fruit: apple
+color: red
+taste: sweet
+origin: kashmir
+
+---
+
+#Example 2: Sequence (List) - List of fruits
+
+fruits:
+  - apple
+  - banana
+  - mango
+  - orange
+
+---
+
+#Example 3: Flow-style sequence - compact inline list
+
+fruits: [apple, banana, mango, orange]
+
+---
+#Example 4
+# DataTypes in YAML
+
+fruit: apple  #string
+price: 50     #number
+is_available: true  #boolean
+quantity: null  #null value
+weight: 1.5  #float
+
+---
+
+#Example 5: Collections - Sequences, mapping and nested mappings.
+#Collections
+
+fruits:
+  - apple
+  - banana
+  - mango
+  - orange
+fruit_details:
+  apple:
+    color: red
+    price: 50
+    stock: true
+  banana:
+    color: yellow
+    price: 5
+    stock: true
+fruits_colors: {apple: red, banana: yellow, mango: yellow-red}
+
+---
+
+#Reference mechanism in YAML
+
+fruits:
+  bestfruit: apple
+  sweetfruit: banana
+  healthyfruit: kiwi
+
+AvinashFruitbasket:
+  FirstChoice: !Ref healthyfruit
+  SecondChoice: !Ref sweetfruit
+  ThirdChoice: !Ref bestfruit
+
+AnudeepFruitbasket:
+  FirstChoice: !Ref bestfruit
+  SecondChoice: !Ref healthyfruit
+  ThirdChoice: !Ref sweetfruit
+
+AravindFruitbasket:
+  FirstChoice: !Ref sweetfruit
+  SecondChoice: !Ref healthyfruit
+  ThirdChoice: !Ref bestfruit
+
+---
+
+shop_name: Avinash Fruit shop
+location: kukatpally
+fruits:
+  - name: apple
+    color: red
+    origin: simla
+    stock: true
+  - name: banana
+    color: yellow
+    origin: nashik
+    stock: true
+  - name: mango
+    color: yellow-red
+    origin: AP
+    stock: false
+fruits_taste: {apple: sweet, banana: sweet, mango: sweet}
+discount:
+  weekday: 10
+  weekend: 5
