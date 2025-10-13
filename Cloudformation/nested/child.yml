@@ -1,0 +1,26 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Child stack with 2 S3 buckets'
+
+Resources:
+  Bucket1:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub 'nested-test-bucket-1-${AWS::AccountId}-${AWS::Region}'
+      
+  Bucket2:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub 'nested-test-bucket-2-${AWS::AccountId}-${AWS::Region}'
+
+Outputs:
+  Bucket1Name:
+    Description: 'Name of the first S3 bucket'
+    Value: !Ref Bucket1
+    Export:
+      Name: !Sub '${AWS::StackName}-Bucket1Name'
+      
+  Bucket2Name:
+    Description: 'Name of the second S3 bucket'
+    Value: !Ref Bucket2
+    Export:
+      Name: !Sub '${AWS::StackName}-Bucket2Name'

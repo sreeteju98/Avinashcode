@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: A simple CloudFormation template to create an S3 bucket.
+
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+    AllowedValues:
+      - dev
+      - uat
+      - prod
+    Description: "Select the environment you want to deploy your ec2 insatnce"
+
+Mappings:
+  EnvToInstanceType:
+    dev:
+      InstanceType: t3.micro
+    uat:
+      InstanceType: t3.small
+    prod:
+      InstanceType: c7i-flex.large
+
+Resources:
+  MyEC2Insatnce:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0f9708d1cd2cfee41
+      InstanceType: !FindInMap [EnvToInstanceType, !Ref Environment, InstanceType]
+      Tags:
+        - Key: Name
+          Value: !Sub "mappings-demo-${Environment}"

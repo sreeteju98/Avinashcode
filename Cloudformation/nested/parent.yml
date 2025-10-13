@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Parent stack that deploys child stack with S3 buckets'
+
+Parameters:
+  ChildTemplateURL:
+    Type: String
+    Description: 'S3 URL of the child template'
+
+Resources:
+  ChildStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: !Ref ChildTemplateURL
+      

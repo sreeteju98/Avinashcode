@@ -1,0 +1,7 @@
+Resources:
+  DrifttestBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: avinash-drifti.test
+      VersioningConfiguration:
+        Status: Enabled
