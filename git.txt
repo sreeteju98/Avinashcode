@@ -1,0 +1,78 @@
+SCCM : Source code control System - 1 File
+RCM : Revision Control System - n files, 1 Dir
+CVS : Cuncurrent Version System : x files , x dir, x1 user
+
+SVN : SubVersion : x files, x dir, x users
+2005 - Git : Global Information Tracker : Linus Tarvalds
+
+Distributed in Nature : 
+
+git config --global user.name "Avinash"
+git config --global user.email "avizway@gmail.com"
+
+git config --list
+git config --global --edit
+git config --global core.editor "vim"
+
+
+echo "# awar05-git1" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/avizway1/awar05-git.git
+git push -u origin main
+
+git remote -v --> Shows connected remote URLs.
+
+git push -u origin main
+git push origin main
+git push
+
+
+git remote add origin <repo-url>
+
+Working Directory : Where we run "git init".. Whatever you create/modify/delete that will be tracked by Git.
+Staging Area : Like a Rough Draft space. A place where you prepare files for next commit. "git add"
+Repository : Your project folder containing all files and history of the changes on files.. "git commit"
+
+git log
+
+---
+
+1. Check for existi9ng SSH keys
+ls -al ~/.ssh
+
+2. generate a new SSH key
+ssh-keygen -t ed25519 -C "avizway@gmail.com"
+
+keys generate and stores under "/root/.ssh/"
+
+3. Add SSH key to the SSH Agent
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+4. Copy the public Key and add it in Github
+
+cat ~/.ssh/id_ed25519.pub
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKBqqsd4FXbtMvGtmQWpjGs4assNUOw1n61h6JTu5ioSq3 avizway@gmail.com
+
+5. Verify
+
+ssh -T git@github.com
+
+
+
+06:00 AM to 07:30 AM --> Fri
+
+
+
+
+
+
+
+
+
+
