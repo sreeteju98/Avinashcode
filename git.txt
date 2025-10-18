@@ -64,12 +64,67 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKBqqsd4FXbtMvGtmQWpjGs4assNUOw1n61h6JTu5ioS
 ssh -T git@github.com
 
 
+---
 
-06:00 AM to 07:30 AM --> Fri
+Pull : To get the changes from remote repository to local repo.. 
 
+Create a new branch
+git branch <branch-name>		
 
+Switch to an existing branch
+git checkout feature-x (or)
+git switch feature-x
 
+Create a branch and checkout automatically
+git checkout -b <branch-name>
 
+git branch --> List the branches
+
+git merge <branch-name>
+
+git branch -d <branch-name>
+
+---
+
+Git cannot auto resolve line-level conflicts.. but giving an option to compare and choose the valid one.
+
+---
+
+Create a repo and add a file..
+
+laptop --> clone --> edit the file and push it..
+
+ec2--> clone --> Create a branch, switch, edit --> commit (dont merge)..
+--> dswitch to main and get latest --> then after try to merge existing branch..
+
+---
+
+stash : 
+
+git stash			--> stash changes
+git stash apply		--> Apply stashed changes
+git stash list		--> list all stashes
+git stash show -p 	--> shows the shashed changes
+git stash pop		--> apply and remove a stash
+
+---
+
+Git stash
+Git stash >> used to save the modified files and deleted files aside
+Git stash -u >> used to save/stash the untracked file which is not created/new file
+Git stash list >> will show all the list of stash along with the indices(int-type) 
+To escape type>> :q
+Git stash apply 0(index>> int)(stash back the working directory back to apply changes)
+Git stash show 0 (index>> int)( to have a look at inside of some of the stash) 
+Git stash show -p 0 >> this will show us the changes in the pool tree view)
+P is patch which show us all the patched up files
+Git stash push -m “imp schedules api” >> Custom stashing with our own msg
+Git stash branch new-branch 0 >>Creating new branch from stash for our future purpose
+Git stash pop ( to bring back latest changes from stash)
+Git stash clear (to completely clear all stashes)
+Git stash drop 0
+
+---
 
 
 
