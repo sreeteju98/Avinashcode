@@ -127,6 +127,92 @@ Git stash drop 0
 ---
 
 
+.gitignore is designed to ignore some of the file formats/directories to send/push it to remote repositopries.
+
+First create .gitognore, add, commit and push.. then ig will ignore the file formats mentioned in gitignore file..
+
+---
+
+==> https://www.youtube.com/watch?v=0chZFIZLR_0
+
+
+Git merge : 
+
+You and your friend both are writing a book chapters paralally..
+
+You wrote 3 chapters.. 
+Your friend wrote 2 chapters.. 
+
+You 2 decided to combine.. 
+
+--> Git create a new "merge commit".
+--> History clearly shows that two seperate lines of works existed and later combined.. 
+--> Everyones contribution stays visible.. Transparant and accurate to get info on project status/evaluation.
+
+git checkout main
+git merge feature-x
+
+---
+
+GIT REBASE:
+
+You and your friend both are writing a book chapters paralally.. 
+
+You wrote 3 chapters.. 
+Your friend wrote 2 chapters.. 
+
+You 2 decided to combine.. 
+
+--> Rebase moves your commits on top of another branch.
+--> It creates a linear, cleaner history as if the work done in "sequence".
+--> The final book contains all 5 chapters.. History looks smoother.. 
+
+git checkout main
+git rebase feature-x
+
+---
+
+squash
+
+--> you actually did 20 chages in chapter 5 and save it as draft.. You dont want all these changes to be reflected in the final book.. so, you combine all those drafts into one polished version.. 
+
+Squash combines the multiple commits into one single commit..
+End of the, code is going to be the same.. 
+Helps when developer do lot of small small chages or lot of simple commit.. 
+
+---
+
+Merge --> keeps full history, combine all authors chapters honestly..  Collaborative work, preseving real work hostory..
+
+Rebase --> Rewite to look like one author wrote everything in an order.. cleaner commits or history..
+
+Squash --> combine Multiple deafts into one filnal draft.. compresses history or messy commits.. 
+
+---
+
+
+cherry pick : If we have a specific commit in a specif branch, and you want to use that commit in your branch, you can use this cherry pick option.. 
+
+We have "merge/rebase" to combine one branch to another branch.. 
+
+
+git cherry-pick <commit-hash>
+
+git log --> to find the commit hash
+
+---
+
+
+git fork
+
+
+
+
+
+
+
+
+
 
 
 
