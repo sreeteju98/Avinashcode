@@ -36,10 +36,78 @@ docker stop <container-id>		--> To stop the container
 docker start <container-id>		--> To start the container
 docker kill <container-id>		--> To kill the container
 
-
 docker run -d -p <host-port>:<container-port> nginx:latest
 
 docker run -d --name mydemo-nginx -p 80:80 nginx:latest
+
+---
+
+
+docker inspect <container-id>	--> Shows all info about the container
+
+docker exec -it be754c028168 /bin/bash		--> TO connect to the running container, we can use this "exec" option.
+
+docker logs <container-id>					--> To verify the logs of a container
+docker logs be754c028168
+
+docker top be754c028168						--> Shows running processes inside a container
+docker stats								--> Shows live CPU, Memory, i/o stats
+
+---
+
+docker run -d -p 80:80 --name myapp --memory=256m --cpus=1 nginx:latest
+
+docker inspect 3a363e2d7c66
+
+docker inspect --format='{{.HostConfig.Memory}}' myapp
+docker inspect --format='{{.HostConfig.NanoCpus}}' myapp
+
+---
+
+
+docker rename clever_beaver myapp-new
+
+docker cp 3a363e2d7c66:/container.txt ./		--> Copy file from container to local current path
+
+docker cp ./host.txt 3a363e2d7c66:/
+
+---
+
+Network Modes in Containers..
+
+Bridge : Default for containers. Internal network where containers can talk to each other..  
+
+Host : Container shares the host machine's network. 
+
+none : Container has no network at all.. 
+
+container : Shares network with another container.. 
+
+overlay : used in docker swarm to connect containers across multiple hosts..
+
+
+
+docker network ls		--> Shows the network modes we have in current setup
+
+docker network inspect d2fcd90c6672
+docker network inspect host
+docker network inspect bridge
+
+
+docker network create my_network
+
+docker run -dit --name c1 --network my_network alpine
+
+docker run -it --network host nginx
+
+Bridge is the common and default network mode we use most of the times.. In AWS, We do have option to run our workload inside a VPC and we always prefer this.. 
+
+---
+
+
+
+
+
 
 
 
