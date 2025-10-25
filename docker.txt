@@ -13,7 +13,6 @@ docker images --> List all the images we have in this machine.
 
 https://hub.docker.com/
 
-
 docker ps 		--> shows running containers
 docker ps -a 	--> shows running and stopped containers
 
@@ -41,7 +40,6 @@ docker run -d -p <host-port>:<container-port> nginx:latest
 docker run -d --name mydemo-nginx -p 80:80 nginx:latest
 
 ---
-
 
 docker inspect <container-id>	--> Shows all info about the container
 
@@ -103,6 +101,127 @@ docker run -it --network host nginx
 Bridge is the common and default network mode we use most of the times.. In AWS, We do have option to run our workload inside a VPC and we always prefer this.. 
 
 ---
+
+Dockerfile : To containerise and deliver our application, we have to first write our own Dockerfiles, then we need to build, need to push it to "Docker Hub" / "ECR (Elastic Container Registry)".. 
+We can pull it from anywhere and run it.. 
+
+
+FROM 	--> We have to specify the base image to use for building the Docker image. (Base OS)
+
+FROM ubuntu:20.02
+FROM alpine:latest 
+
+---
+
+RUN		--> Executes command in a new layer on top of the above mentioned base image. 
+
+RUN apt-get update && apt-get install nginx -y
+
+**We can combine multiple commands into single layer to reduce the image layers and size
+
+---
+
+WORKDIR	--> Sets the working directory for the base image.
+
+WORKDIR /app
+
+---
+
+COPY	--> Copies files/directories from the local/host to the image we are preapring. Unlike ADD, it doesnt unpack archieves.
+
+COPY /home/ec2-user/mydata/ /usr/share/nginx/html/
+COPY . .
+
+---
+
+ADD		--> Similar to COPY, but supports archieve extractions.. (.tzr.gz)
+
+ADD my_data.tar.gz /app/
+
+---
+
+**At organisation Level, we always follow one security standard/measure.. We never run images as root user.. 
+
+USER	--> Sets the user to use when we are running an image.
+
+USER appuser
+USER ec2-user
+
+---
+
+CMD : provides the default arguments for the container execution. Overrridden if arguments are passed when we are running container using "docker run" 
+
+CMD ["nginx", "-g", "daemon off;"]
+
+---
+
+ENTRYPOINT : Defines a command that always runs, even if arguments are passed with "docker run"
+
+ENTRYPOINT ["python", "app.py"]
+
+---
+
+ENV		--> Sets environment variables for use during the build and runtime.
+
+ENV	APP_ENV=production
+ENV	APP_ENV=uat
+
+---
+
+EXPOSE	--> We can defines the port number that the container listens on. It doesnt publish the port. 
+
+EXPORT 80
+
+---
+
+VOLUME	--> Creates a mount point and makes it as a persistent or shared volume.
+
+VOLUME /var/lib/mysql
+
+---
+
+LABEL	--> We can add metadata to the image
+
+LABEL maintener="avinash" version="1.1"
+
+---
+
+HEALTHCHECK		--> We can definea a command to check the container health at runtime.
+
+HEALTHCHECK CMD curl --fail http://localhost:80 || exit 1
+
+
+---
+
+Dockerfile
+
+---
+
+FROM python:3.15.0a1-alpine3.22
+
+LABEL owner="avinash@avinash.com"
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 80
+
+CMD ["python","app.py"]
+
+---
+
+
+docker build -t my-python-app:v1 .
+
+
+
+
+
+
+
 
 
 
